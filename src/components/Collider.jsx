@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 
-export function Collider(props) {
+export default function Collider(props) {
   const { nodes } = useGLTF("/models/rapierCollider.glb");
   const material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 });
 

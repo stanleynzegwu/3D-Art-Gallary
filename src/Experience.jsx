@@ -1,58 +1,24 @@
-import { useMemo, useEffect, useState, useRef, Suspense } from "react";
+import { useMemo, useEffect, Suspense } from "react";
 import * as THREE from "three";
-import { useGLTF, OrbitControls, useTexture, Center, Environment } from "@react-three/drei";
+import { OrbitControls, Center, Environment } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
-import { Glass } from "./components/Glass";
-import { WallFlag } from "./components/WallFlag";
-import { BakedBig } from "./components/BakedBig";
-import Player from "./components/Player";
 import { makeFullScreen } from "./utils";
 import { gsap } from "gsap";
+import {
+  Gallary1,
+  Gallary2,
+  Gallary3,
+  GallaryGlass,
+  GallaryTopFloor,
+  GallaryWall,
+  Player,
+  Collider,
+} from "./components";
 
 export default function Experience() {
   const { gl, camera } = useThree();
-  const gallary = useGLTF("project1.glb");
-  const gallary2 = useGLTF("baked2.glb");
-  const gallary3 = useGLTF("upper.glb");
-
-  const bakedTexture = useTexture("baked1Noise.jpg");
-  const baked2Texture = useTexture("bakedNoise2.jpg");
-  const baked3Texture = useTexture("UpperBakedNoise.jpg");
-
-  const glassMaterial = new THREE.MeshBasicMaterial({
-    transparent: true,
-    opacity: 0.95,
-  });
-
-  bakedTexture.flipY = false;
-  bakedTexture.colorSpace = THREE.SRGBColorSpace;
-
-  baked2Texture.flipY = false;
-  baked2Texture.colorSpace = THREE.SRGBColorSpace;
-
-  baked3Texture.flipY = false;
-  baked3Texture.colorSpace = THREE.SRGBColorSpace;
-
-  const textureMaterial = new THREE.MeshBasicMaterial({
-    map: bakedTexture,
-  });
-  const textureMaterial2 = new THREE.MeshBasicMaterial({
-    map: baked2Texture,
-  });
-
-  const textureMaterial3 = new THREE.MeshBasicMaterial({
-    map: baked3Texture,
-  });
-
-  gallary.scene.children.map((child) => (child.material = textureMaterial));
-  gallary2.scene.children.map((child) => (child.material = textureMaterial2));
-  gallary3.scene.children.map((child) => (child.material = textureMaterial3));
-
-  const g = gallary2.scene.children
-    .filter(({ name }) => name.includes("pivotGlass"))
-    .map((child) => (child.material = glassMaterial));
 
   //Toggle Fullscreen
   makeFullScreen(gl);
@@ -102,18 +68,13 @@ export default function Experience() {
       <ambientLight intensity={0.5} />
 
       <Center>
-        <RigidBody type="fixed" colliders={"trimesh"} friction={1}>
-          <primitive object={gallary.scene} />
-
-          <primitive object={gallary2.scene} />
-
-          <primitive object={gallary3.scene} />
-          <WallFlag />
-
-          <Glass />
-        </RigidBody>
-        <BakedBig />
-
+        <Gallary1 />
+        <Gallary2 />
+        <Gallary3 />
+        <GallaryGlass />
+        <GallaryTopFloor />
+        <GallaryWall />
+        <Collider />
         <Player />
       </Center>
     </>

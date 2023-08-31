@@ -1,0 +1,8 @@
+export { default as Collider } from "./Collider"
+export { default as Gallary1 } from "./Gallary1"
+export { default as Gallary2 } from "./Gallary2"
+export { default as Gallary3 } from "./Gallary3"
+export { default as GallaryGlass } from "./GallaryGlass"
+export { default as GallaryTopFloor } from "./GallaryTopFloor"
+export { default as GallaryWall } from "./GallaryWall"
+export { default as Player } from "./Player"

@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { frames } from "../../constants";
+import { frames } from "../constants";
 import { RigidBody } from "@react-three/rapier";
 
-export function Gallary1(props) {
+export default function Gallary1(props) {
   const { nodes } = useGLTF("/models/gallaryModel1.glb");
   const stairpillar = useGLTF("/models/stairpillar.glb");
   const texture = useTexture("textures/gallaryTexture1.jpg");

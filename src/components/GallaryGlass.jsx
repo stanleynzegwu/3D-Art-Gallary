@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-export function GallaryGlass(props) {
+export default function GallaryGlass(props) {
   const { nodes } = useGLTF("/models/gallaryGlass.glb");
 
   const glassMaterial = new THREE.MeshPhysicalMaterial({

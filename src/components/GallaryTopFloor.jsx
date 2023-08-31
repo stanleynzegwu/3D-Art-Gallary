@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { frames2 } from "../../constants";
+import { frames2 } from "../constants";
 
-export function GallaryTopfloor() {
+export default function GallaryTopfloor() {
   const { nodes } = useGLTF("/models/gallaryTopFloor.glb");
 
   const texture = useTexture("textures/gallaryTopFloor.jpg");

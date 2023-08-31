@@ -11,7 +11,7 @@ import { playAnimation, playerdirection, toggleMovement } from "../utils";
 //cHARACTER ANIMATION
 const Player = () => {
   const snap = useSnapshot(store);
-  const avatar = useGLTF("avatar.glb");
+  const avatar = useGLTF("models/avatar.glb");
   const player = useRef();
   const rigidPlayer = useRef();
 
@@ -55,15 +55,9 @@ const Player = () => {
   }, []);
 
   useFrame(({ camera, controls }, delta) => {
-    // console.log(camera.position);
-    // let d = new THREE.Vector3();
-    // player.current.getWorldDirection(d);
-    // d.normalize();
-    // console.log(d);
     //KEYBOARDCONTROLS
     const { forward, backward, leftward, rightward } = getKeys();
 
-    // pressKey();
     //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
     playAnimation([forward, backward, leftward, rightward]);
     playerdirection(

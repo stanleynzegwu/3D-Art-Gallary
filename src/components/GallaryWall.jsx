@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
-export function GallaryWall(props) {
+export default function GallaryWall(props) {
   const { nodes } = useGLTF("/models/gallaryWall.glb");
 
   const redMaterial = new THREE.MeshBasicMaterial({ color: "#ff4242" });
