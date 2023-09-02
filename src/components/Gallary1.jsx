@@ -6,7 +6,6 @@ import { RigidBody } from "@react-three/rapier";
 
 export default function Gallary1(props) {
   const { nodes } = useGLTF("/models/gallaryModel1.glb");
-  const stairpillar = useGLTF("/models/stairpillar.glb");
   const texture = useTexture("textures/gallaryTexture1.jpg");
 
   const yellowLedMaterial = new THREE.MeshBasicMaterial({
@@ -20,7 +19,6 @@ export default function Gallary1(props) {
     map: texture,
   });
 
-  stairpillar.scene.children.map((child) => (child.material = yellowLedMaterial));
   return (
     <group
       {...props}
@@ -79,15 +77,14 @@ export default function Gallary1(props) {
         material={yellowLedMaterial}
         position={[6.841, 1.347, 4.464]}
       />
-      <RigidBody type={"fixed"} colliders={"hull"}>
-        <mesh
-          name="jointStaircase"
-          geometry={nodes.jointStaircase.geometry}
-          material={textureMaterial}
-          position={[19.446, 1.037, 0.718]}
-        />
-      </RigidBody>
-      <primitive object={stairpillar.scene} />
+      {/* <RigidBody type={"fixed"} colliders={"hull"}> */}
+      <mesh
+        name="jointStaircase"
+        geometry={nodes.jointStaircase.geometry}
+        material={textureMaterial}
+        position={[19.446, 1.037, 0.718]}
+      />
+      {/* </RigidBody> */}
     </group>
   );
 }

@@ -1,6 +1,6 @@
 import { useMemo, useEffect, Suspense } from "react";
 import * as THREE from "three";
-import { OrbitControls, Center, Environment } from "@react-three/drei";
+import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
@@ -22,6 +22,14 @@ export default function Experience() {
 
   //Toggle Fullscreen
   makeFullScreen(gl);
+
+  //WALL MATERIAL
+  const wallTexture = useTexture("textures/gallaryWall.jpg");
+  wallTexture.flipY = false;
+  wallTexture.colorSpace = THREE.SRGBColorSpace;
+  const wallMaterial = new THREE.MeshBasicMaterial({
+    map: wallTexture,
+  });
 
   useEffect(() => {
     const timeline = gsap.timeline();
@@ -73,8 +81,8 @@ export default function Experience() {
         <Gallary3 />
         <GallaryGlass />
         <GallaryTopFloor />
-        <GallaryWall />
-        <Collider />
+        <GallaryWall wallMaterial={wallMaterial} />
+        <Collider wallMaterial={wallMaterial} />
         <Player />
       </Center>
     </>

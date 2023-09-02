@@ -73,20 +73,20 @@ const Player = () => {
     <RigidBody
       type={"dynamic"}
       lockRotations
-      gravityScale={0}
+      // gravityScale={0}
       canSleep={false}
       friction={3}
       colliders={false}
       ref={rigidPlayer}
-      position={[11, 0.667, 19]}
-      collisionGroups={interactionGroups(0, [0, 1, 2])}
+      position={[11, 1.5, 19]}
+      // collisionGroups={interactionGroups(0, [0, 1, 2])}
       onCollisionEnter={() => {
         store.collision = true;
         console.log("collision");
       }}
       onCollisionExit={() => (store.collision = false)}
     >
-      <CapsuleCollider args={[0.4, 0.4]} position-y={2} position={[0, 0.9, 0]} />
+      <CapsuleCollider args={[0.5, 0.4]} position-y={2} position={[0, 0.9, 0]} />
       <primitive ref={player} rotation-y={-Math.PI} object={avatar.scene} />
     </RigidBody>
   );

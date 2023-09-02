@@ -26,7 +26,7 @@ export default function Gallary3() {
         type="fixed"
         friction={3}
         name="groundFloor"
-        collisionGroups={interactionGroups(5, [5, 6, 7])}
+        // collisionGroups={interactionGroups(5, [5, 6, 7])}
       >
         <mesh
           name="groundFloorTile"

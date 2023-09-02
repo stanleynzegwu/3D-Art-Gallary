@@ -2,20 +2,20 @@ import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function GallaryWall(props) {
+export default function GallaryWall({ wallMaterial: textureMaterial }) {
   const { nodes } = useGLTF("/models/gallaryWall.glb");
 
   const redMaterial = new THREE.MeshBasicMaterial({ color: "#ff4242" });
-  const wallTexture = useTexture("textures/gallaryWall.jpg");
-  wallTexture.flipY = false;
-  wallTexture.colorSpace = THREE.SRGBColorSpace;
+  // const wallTexture = useTexture("textures/gallaryWall.jpg");
+  // wallTexture.flipY = false;
+  // wallTexture.colorSpace = THREE.SRGBColorSpace;
 
-  const textureMaterial = new THREE.MeshBasicMaterial({
-    map: wallTexture,
-  });
+  // const textureMaterial = new THREE.MeshBasicMaterial({
+  //   map: wallTexture,
+  // });
 
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <mesh
         name="wallANdFlagPipe"
         geometry={nodes.wallANdFlagPipe.geometry}

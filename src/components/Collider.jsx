@@ -3,20 +3,20 @@ import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 
-export default function Collider(props) {
+export default function Collider({ wallMaterial }) {
   const { nodes } = useGLTF("/models/rapierCollider.glb");
+  const { nodes: stairNodes } = useGLTF("models/stairCollider.glb");
   const material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 });
 
   return (
-    <RigidBody type="fixed">
-      <group
-        {...props}
-        dispose={null}
-        onPointerEnter={(event) => {
-          event.stopPropagation();
-          document.body.style.cursor = "default";
-        }}
-      >
+    <group
+      dispose={null}
+      onPointerEnter={(event) => {
+        event.stopPropagation();
+        document.body.style.cursor = "default";
+      }}
+    >
+      <RigidBody type="fixed">
         <mesh
           name="wall1"
           geometry={nodes.wall1.geometry}
@@ -89,9 +89,38 @@ export default function Collider(props) {
           material={material}
           position={[19.073, 6.465, -11.695]}
         />
-      </group>
-    </RigidBody>
+      </RigidBody>
+      <RigidBody type={"fixed"} colliders={"trimesh"}>
+        {/* STAIR */}
+        <mesh
+          name="staircaseCollider"
+          geometry={stairNodes.staircaseCollider.geometry}
+          material={material}
+          position={[19.446, 1.037, 0.718]}
+        />
+        <mesh
+          name="staircaseColliderFoot"
+          geometry={stairNodes.staircaseColliderFoot.geometry}
+          material={material}
+          position={[20.076, 0.852, 4.391]}
+          scale={4.006}
+        />
+        <mesh
+          name="stairGlassCollider"
+          geometry={stairNodes.stairGlassCollider.geometry}
+          material={material}
+          position={[19.446, 1.037, 0.718]}
+        />
+        <mesh
+          name="roundPillarCollider"
+          geometry={stairNodes.roundPillarCollider.geometry}
+          material={wallMaterial}
+          position={[19.573, 3.956, 0.504]}
+        />
+      </RigidBody>
+    </group>
   );
 }
 
 useGLTF.preload("/models/rapierCollider.glb");
+useGLTF.preload("/models/stairCollider.glb");
