@@ -1,4 +1,4 @@
-import { useKeyboardControls, useGLTF, useFBX, useAnimations } from "@react-three/drei";
+import { useKeyboardControls, useGLTF, useFBX, useAnimations, Clone } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { RigidBody, CapsuleCollider, interactionGroups } from "@react-three/rapier";
 import { useEffect, useRef } from "react";
@@ -18,13 +18,23 @@ const Player = () => {
   const { animations: runningAnimation } = useFBX("./animations/Running.fbx");
   const { animations: standingAnimation } = useFBX("./animations/Standing Idle.fbx");
   const { animations: walkingAnimation } = useFBX("./animations/Walking.fbx");
+  const { animations: ascendingStairsAnimation } = useFBX("./animations/Ascending Stairs.fbx");
+  const { animations: descendingStairsAnimation } = useFBX("./animations/Descending Stairs.fbx");
 
   runningAnimation[0].name = "Running";
   standingAnimation[0].name = "Standing";
   walkingAnimation[0].name = "Walking";
+  ascendingStairsAnimation[0].name = "Ascending";
+  descendingStairsAnimation[0].name = "Descending";
 
   const { actions } = useAnimations(
-    [runningAnimation[0], standingAnimation[0], walkingAnimation[0]],
+    [
+      runningAnimation[0],
+      standingAnimation[0],
+      walkingAnimation[0],
+      ascendingStairsAnimation[0],
+      descendingStairsAnimation[0],
+    ],
     player
   );
 
@@ -70,25 +80,26 @@ const Player = () => {
     );
   });
   return (
-    <RigidBody
-      type={"dynamic"}
-      lockRotations
-      // gravityScale={0}
-      canSleep={false}
-      friction={3}
-      colliders={false}
-      ref={rigidPlayer}
-      position={[11, 1.5, 19]}
-      // collisionGroups={interactionGroups(0, [0, 1, 2])}
-      onCollisionEnter={() => {
-        store.collision = true;
-        console.log("collision");
-      }}
-      onCollisionExit={() => (store.collision = false)}
-    >
-      <CapsuleCollider args={[0.5, 0.4]} position-y={2} position={[0, 0.9, 0]} />
-      <primitive ref={player} rotation-y={-Math.PI} object={avatar.scene} />
-    </RigidBody>
+    <>
+      <RigidBody
+        type={"dynamic"}
+        lockRotations
+        // gravityScale={0}
+        canSleep={false}
+        friction={3}
+        colliders={false}
+        ref={rigidPlayer}
+        position={[11, 1.5, 19]}
+        collisionGroups={interactionGroups(0, [0, 1])}
+        onCollisionEnter={() => {
+          store.collision = true;
+        }}
+        onCollisionExit={() => (store.collision = false)}
+      >
+        <CapsuleCollider args={[0.5, 0.4]} position-y={2} position={[0, 0.9, 0]} />
+        <primitive ref={player} rotation-y={-Math.PI} object={avatar.scene} />
+      </RigidBody>
+    </>
   );
 };
 

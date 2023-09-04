@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
+import { store } from "../store";
 
 export default function Collider({ wallMaterial }) {
   const { nodes } = useGLTF("/models/rapierCollider.glb");
@@ -90,7 +91,12 @@ export default function Collider({ wallMaterial }) {
           position={[19.073, 6.465, -11.695]}
         />
       </RigidBody>
-      <RigidBody type={"fixed"} colliders={"trimesh"}>
+      <RigidBody
+        type={"fixed"}
+        colliders={"trimesh"}
+        // onCollisionEnter={() => (store.movementType = "Ascending")}
+        // onCollisionExit={() => (store.movementType = "Walking")}
+      >
         {/* STAIR */}
         <mesh
           name="staircaseCollider"
@@ -98,6 +104,8 @@ export default function Collider({ wallMaterial }) {
           material={material}
           position={[19.446, 1.037, 0.718]}
         />
+      </RigidBody>
+      <RigidBody type={"fixed"} colliders={"trimesh"}>
         <mesh
           name="staircaseColliderFoot"
           geometry={stairNodes.staircaseColliderFoot.geometry}

@@ -3,6 +3,8 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames } from "../constants";
 import { RigidBody } from "@react-three/rapier";
+import { useSnapshot } from "valtio";
+import { store } from "../store";
 
 export default function Gallary1(props) {
   const { nodes } = useGLTF("/models/gallaryModel1.glb");
@@ -19,6 +21,10 @@ export default function Gallary1(props) {
     map: texture,
   });
 
+  const groundFrameGroup = useRef();
+  // if (groundFrameGroup.current) store.groundFramesToTest = groundFrameGroup.current.children;
+  // console.log(groundFrameGroup.current);
+
   return (
     <group
       {...props}
@@ -27,28 +33,29 @@ export default function Gallary1(props) {
       onPointerEnter={(event) => event.stopPropagation()}
     >
       <RigidBody type={"fixed"}>
-        {frames(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
-          <mesh
-            key={geometry + name}
-            name={name}
-            geometry={geometry}
-            material={textureMaterial}
-            position={position}
-            rotation={rotation}
-            onClick={(event) => {
-              event.stopPropagation();
-              console.log(event);
-            }}
-            onPointerEnter={(event) => {
-              document.body.style.cursor = "pointer";
-            }}
-            onPointerLeave={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "default";
-            }}
-          />
-        ))}
-
+        <group ref={groundFrameGroup}>
+          {frames(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
+            <mesh
+              key={geometry + name}
+              name={name}
+              geometry={geometry}
+              material={textureMaterial}
+              position={position}
+              rotation={rotation}
+              onClick={(event) => {
+                event.stopPropagation();
+                console.log(event);
+              }}
+              onPointerEnter={(event) => {
+                document.body.style.cursor = "pointer";
+              }}
+              onPointerLeave={(event) => {
+                event.stopPropagation();
+                document.body.style.cursor = "default";
+              }}
+            />
+          ))}
+        </group>
         <mesh
           name="receptionDesk"
           geometry={nodes.receptionDesk.geometry}
