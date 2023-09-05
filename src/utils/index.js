@@ -89,8 +89,8 @@ export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,contr
   }
 
    // temporary data
- let walkDirection = new THREE.Vector3()
- let rotateAngle = new THREE.Vector3(0, 1, 0)
+  let walkDirection = new THREE.Vector3()
+  let rotateAngle = new THREE.Vector3(0, 1, 0)
   let rotateQuarternion= new THREE.Quaternion()
  
   
@@ -117,31 +117,6 @@ export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,contr
        const velocity = store.movementType == 'Running' ? 4 : 3
        let playerPosition = rigidPlayer.translation();
       
-
-      //  move model & camera
-      //  if(store.collision){
-      // const moveX = walkDirection.x * velocity * delta
-      // const moveZ = walkDirection.z * velocity * delta 
-
-      //   playerPosition.x += moveX;
-      //   playerPosition.z += moveZ;
-      //   rigidPlayer.setTranslation(playerPosition, true)
-
-      //   let cameraTarget = new THREE.Vector3()
-
-      //   // move camera
-      //   camera.position.x += moveX
-      //   camera.position.z += moveZ
-      
-      //   // update camera target
-      //   cameraTarget.x = rigidPlayer.translation().x
-      //   cameraTarget.y = rigidPlayer.translation().y + 2
-      //   cameraTarget.z = rigidPlayer.translation().z
-      //   control.target = cameraTarget
-
-      //   return
-      //  }
-      
         const moveX = walkDirection.x * velocity * delta
         const moveZ = walkDirection.z * velocity * delta
 
@@ -149,11 +124,9 @@ export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,contr
         playerPosition.z -= moveZ;
         rigidPlayer.setTranslation(playerPosition, true)
 
-
-
         updateCameraTarget(camera,rigidPlayer,moveX, moveZ, control)
-       
-     
     }
 
 }
+
+

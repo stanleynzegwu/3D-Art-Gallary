@@ -4,12 +4,16 @@ import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 export default function Receptionist() {
   const ladyCharacter = useRef();
   const model = useGLTF("/models/ladyAvatar.glb");
-  const { animations: typingAnimation } = useFBX("./animations/Typing.fbx");
+  const { animations: typingAnimation } = useFBX("/animations/Typing.fbx");
   typingAnimation[0].name = "Typing";
   const { actions } = useAnimations(typingAnimation, ladyCharacter);
 
   useEffect(() => {
-    actions["Typing"].reset().play();
+    actions["Typing"].reset().fadeIn(0.5).play();
+
+    return () => {
+      actions["Typing"].reset().fadeOut(0.5);
+    };
   }, []);
 
   return (

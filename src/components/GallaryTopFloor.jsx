@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames2 } from "../constants";
+import { RigidBody } from "@react-three/rapier";
 
 export default function GallaryTopfloor() {
   const { nodes } = useGLTF("/models/gallaryTopFloor.glb");
@@ -23,29 +24,89 @@ export default function GallaryTopfloor() {
 
   return (
     <group dispose={null}>
-      {frames2(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
+      <RigidBody type="fixed">
+        {frames2(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
+          <mesh
+            key={geometry + name}
+            name={name}
+            geometry={geometry}
+            material={textureMaterial}
+            position={position}
+            rotation={rotation}
+          />
+        ))}
+      </RigidBody>
+      <mesh
+        name="floorTile2"
+        geometry={nodes.floorTile2.geometry}
+        material={floorMaterial}
+        position={[-8.818, 5.828, -3]}
+      />
+      <RigidBody type="fixed" rotation={[0, 1.571, 0]} position={[11.864, 6.089, -19.869]}>
         <mesh
-          key={geometry + name}
-          name={name}
-          geometry={geometry}
+          name="upperChair"
+          geometry={nodes.upperChair.geometry}
           material={textureMaterial}
-          position={position}
-          rotation={rotation}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
         />
-      ))}
+        <mesh
+          name="pivotUpper"
+          geometry={nodes.pivotUpper.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+        <mesh
+          name="upperPillar1"
+          geometry={nodes.upperPillar1.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+        <mesh
+          name="upperPillar2"
+          geometry={nodes.upperPillar2.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+        <mesh
+          name="displayWallUpper1"
+          geometry={nodes.displayWallUpper1.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+        <mesh
+          name="displayWallUpper2"
+          geometry={nodes.displayWallUpper2.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+        <mesh
+          name="displayWallUpper3"
+          geometry={nodes.displayWallUpper3.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+        <mesh
+          name="displayWallUpper4"
+          geometry={nodes.displayWallUpper4.geometry}
+          material={textureMaterial}
+          // position={[11.864, 6.089, -19.869]}
+          // rotation={[0, 1.571, 0]}
+        />
+      </RigidBody>
+
       <mesh
         name="mergedUpper"
         geometry={nodes.mergedUpper.geometry}
         material={textureMaterial}
         position={[11.864, 6.089, -19.869]}
         rotation={[0, 1.571, 0]}
-      />
-
-      <mesh
-        name="floorTile2"
-        geometry={nodes.floorTile2.geometry}
-        material={floorMaterial}
-        position={[-8.818, 5.828, -3]}
       />
     </group>
   );

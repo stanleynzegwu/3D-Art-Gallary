@@ -25,7 +25,6 @@ root.render(
           fov: 30,
           near: 0.1,
           far: 200,
-          // position: [18, -3, 33],
           position: [19, -4, 47],
         }}
       >
@@ -36,6 +35,7 @@ root.render(
         </Suspense>
       </Canvas>
     </KeyboardControls>
+    {/* <Loader /> */}
     <div className="overlay">
       <h3 className="overlay_text">3D Gallary</h3>
       <p className="overlay_explore">Explore Gallary</p>

@@ -11,9 +11,13 @@ export default function OtherCollection(props) {
   });
 
   const tvVideoTexture = useVideoTexture("textures/ladySinging.mp4");
-
   const tvVideoMaterial = new THREE.MeshBasicMaterial({
     map: tvVideoTexture,
+  });
+
+  const desktopScreenTexture = useVideoTexture("textures/realsplash.mp4");
+  const desktopScreenMaterial = new THREE.MeshBasicMaterial({
+    map: desktopScreenTexture,
   });
 
   return (
@@ -21,7 +25,7 @@ export default function OtherCollection(props) {
       <mesh
         name="screen001"
         geometry={nodes.screen001.geometry}
-        material={tvVideoMaterial}
+        material={desktopScreenMaterial}
         position={[7.445, 1.618, 3.16]}
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />

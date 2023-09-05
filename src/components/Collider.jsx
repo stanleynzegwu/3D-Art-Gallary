@@ -1,22 +1,13 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
-import { store } from "../store";
+import { RigidBody } from "@react-three/rapier";
 
 export default function Collider({ wallMaterial }) {
-  const { nodes } = useGLTF("/models/rapierCollider.glb");
-  const { nodes: stairNodes } = useGLTF("models/stairCollider.glb");
+  const { nodes } = useGLTF("/models/collider.glb");
   const material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 });
-
   return (
-    <group
-      dispose={null}
-      onPointerEnter={(event) => {
-        event.stopPropagation();
-        document.body.style.cursor = "default";
-      }}
-    >
+    <group dispose={null}>
       <RigidBody type="fixed">
         <mesh
           name="wall1"
@@ -90,45 +81,61 @@ export default function Collider({ wallMaterial }) {
           material={material}
           position={[19.073, 6.465, -11.695]}
         />
+
+        <mesh
+          name="topGroundCollider"
+          geometry={nodes.topGroundCollider.geometry}
+          material={material}
+          position={[-8.818, 5.828, -3]}
+        />
+        <mesh
+          name="smallWallup3"
+          geometry={nodes.smallWallup3.geometry}
+          material={material}
+          position={[19.073, 6.465, -38.123]}
+        />
+
+        <mesh
+          name="topGroundCollider2"
+          geometry={nodes.topGroundCollider2.geometry}
+          material={material}
+          position={[-8.818, 5.828, -3]}
+        />
       </RigidBody>
       <RigidBody
-        type={"fixed"}
+        type="fixed"
         colliders={"trimesh"}
         // onCollisionEnter={() => (store.movementType = "Ascending")}
         // onCollisionExit={() => (store.movementType = "Walking")}
       >
-        {/* STAIR */}
-        <mesh
-          name="staircaseCollider"
-          geometry={stairNodes.staircaseCollider.geometry}
-          material={material}
-          position={[19.446, 1.037, 0.718]}
-        />
-      </RigidBody>
-      <RigidBody type={"fixed"} colliders={"trimesh"}>
-        <mesh
-          name="staircaseColliderFoot"
-          geometry={stairNodes.staircaseColliderFoot.geometry}
-          material={material}
-          position={[20.076, 0.852, 4.391]}
-          scale={4.006}
-        />
         <mesh
           name="stairGlassCollider"
-          geometry={stairNodes.stairGlassCollider.geometry}
+          geometry={nodes.stairGlassCollider.geometry}
           material={material}
-          position={[19.446, 1.037, 0.718]}
+          position={[19.43, 1.037, 0.718]}
         />
         <mesh
           name="roundPillarCollider"
-          geometry={stairNodes.roundPillarCollider.geometry}
+          geometry={nodes.roundPillarCollider.geometry}
           material={wallMaterial}
           position={[19.573, 3.956, 0.504]}
+        />
+        <mesh
+          name="staircaseCollider"
+          geometry={nodes.staircaseCollider.geometry}
+          material={material}
+          position={[19.446, 1.037, 0.718]}
+        />
+        <mesh
+          name="staircaseColliderFoot"
+          geometry={nodes.staircaseColliderFoot.geometry}
+          material={material}
+          position={[20.076, 0.852, 4.391]}
+          scale={4.006}
         />
       </RigidBody>
     </group>
   );
 }
 
-useGLTF.preload("/models/rapierCollider.glb");
-useGLTF.preload("/models/stairCollider.glb");
+useGLTF.preload("/models/collider.glb");

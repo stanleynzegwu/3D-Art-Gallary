@@ -15,6 +15,8 @@ import {
   GallaryWall,
   Player,
   Collider,
+  OtherCollection,
+  Receptionist,
 } from "./components";
 
 export default function Experience() {
@@ -83,7 +85,9 @@ export default function Experience() {
         <GallaryTopFloor />
         <GallaryWall wallMaterial={wallMaterial} />
         <Collider wallMaterial={wallMaterial} />
+        <OtherCollection />
         <Player />
+        <Receptionist />
       </Center>
     </>
   );
