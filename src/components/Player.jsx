@@ -67,7 +67,6 @@ const Player = () => {
   useFrame(({ camera, controls }, delta) => {
     //KEYBOARDCONTROLS
     const { forward, backward, leftward, rightward } = getKeys();
-
     //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
     playAnimation([forward, backward, leftward, rightward]);
     playerdirection(

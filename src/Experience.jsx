@@ -1,11 +1,12 @@
 import { useMemo, useEffect, Suspense } from "react";
 import * as THREE from "three";
 import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
-import { useThree, useFrame } from "@react-three/fiber";
-import { Physics, RigidBody } from "@react-three/rapier";
+import { useThree } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import { makeFullScreen } from "./utils";
 import { gsap } from "gsap";
+import { store } from "./store";
+import { useSnapshot } from "valtio";
 import {
   Gallary1,
   Gallary2,
@@ -33,7 +34,29 @@ export default function Experience() {
     map: wallTexture,
   });
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   const timeline = gsap.timeline();
+  //   // Define different paths for the camera to follow
+  //   timeline
+  //     .to(
+  //       camera.position,
+  //       {
+  //         z: camera.position.z - 16,
+  //         x: camera.position.x - 2,
+  //         ease: "linear",
+  //         duration: 3,
+  //       },
+  //       "-=1"
+  //     )
+  //     .to(camera.position, {
+  //       y: "+=1",
+
+  //       ease: "linear",
+  //       duration: 3,
+  //     });
+  // }, []);
+  const snap = useSnapshot(store);
+  function gsapp() {
     const timeline = gsap.timeline();
     // Define different paths for the camera to follow
     timeline
@@ -53,7 +76,8 @@ export default function Experience() {
         ease: "linear",
         duration: 3,
       });
-  }, []);
+  }
+  snap.experience && gsapp();
 
   return (
     <>
@@ -65,16 +89,15 @@ export default function Experience() {
         // maxAzimuthAngle={Math.PI / 2} // Maximum azimuth angle (left and right rotation)
         // minAzimuthAngle={-Math.PI / 2} // Minim
       />
-
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
-      {/* <Environment
+      <Environment
         preset="city"
         ground={{
           height: 7,
           radius: 28,
           scale: 100,
         }}
-      /> */}
+      />
       <ambientLight intensity={0.5} />
 
       <Center>

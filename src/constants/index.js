@@ -1,3 +1,12 @@
+export const artQuotes = [
+  {quote:'A beautiful body perishes, but a work of art dies not.',name:'Leonardo da Vinci'},
+  {quote:'The aim of art is not is not to represent the outward appearance of things, but their inward significance',name:'Aristotle'},
+  {quote:'Art is the queen of all sciences communicating knowledge to all the generations of the world.',name:'Leonardo da Vinci'},
+  {quote:'Life beats down and crushes the soul and art reminds you that you have one.',name:'Stella Adler'},
+  {quote:'Art washes away from the soul the dust of everyday life.',name:'Pablo Picasso'},
+  {quote:'You use a glass mirror to see your face; You use works of art to see your soul.',name:'George Bernard Shaw'},
+]
+
 export const frames = (nodes,textureMaterial) => [
     {
       'name':"frame1",

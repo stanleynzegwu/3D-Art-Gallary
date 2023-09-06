@@ -1,4 +1,4 @@
-html,
+/* html,
 body,
 #root
 {
@@ -34,4 +34,56 @@ body,
 .overlay_explore {
     color: red;
     width: 100%;
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ivory;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: absolute;
+    top: 0;
+    /* pointer-events: none; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay_text {
+    color: inherit;
+}
+.overlay_explore {
+    color: red;
+
+}
+.atlas {
+    width: 500px; /* Width of the sprite */
+    height: 400px; /* Height of the sprite */
+    background-image: url('textures/gallaryTexture1.jpg');
+    background-size: 4096px 4096px; 
+    background-position: 180px -20px; /* Position for center */
+    object-fit: cover;
+    transform: rotate(180deg); /* Adjust the rotation angle */
+
 }
