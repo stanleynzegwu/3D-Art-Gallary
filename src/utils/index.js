@@ -140,7 +140,6 @@ export const raycast = (rigidPlayer,player,rapier,world) => {
   const hit = world.castRay(ray)
 
   if(hit){
-    
     if((hit.toi <= 4) && (hit.collider._parent.userData !== undefined)){
       if(store.currentIntersectedObject?.frame !== hit.collider._parent.userData.frame){
         store.currentIntersectedObject = hit.collider._parent.userData

@@ -6,10 +6,10 @@ import Overlay from "./components/UI/Overlay";
 import { store } from "./store";
 import { useSnapshot } from "valtio";
 import Audio from "./components/UI/Audio";
+import ArtInfoCard from "./components/UI/ArtInfoCard";
 
 export default function App() {
   const snap = useSnapshot(store);
-
   return (
     <main className="main bg-white">
       <KeyboardControls
@@ -39,6 +39,7 @@ export default function App() {
       <Loader />
 
       {!snap.experience && <Overlay />}
+      {snap.displayArtInfo && <ArtInfoCard />}
       <Audio />
     </main>
   );

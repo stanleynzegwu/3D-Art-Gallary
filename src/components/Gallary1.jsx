@@ -29,6 +29,7 @@ export default function Gallary1(props) {
       onPointerEnter={(event) => event.stopPropagation()}
     >
       <group>
+        {/* GROUNDFLOOR ART PAINTINGS */}
         {frames(nodes, textureMaterial).map(({ name, geometry, position, rotation, userData }) => (
           <RigidBody type={"fixed"} userData={userData} key={geometry + name}>
             <mesh
@@ -52,7 +53,12 @@ export default function Gallary1(props) {
             >
               {snap.currentIntersectedObject?.frame === name && (
                 <Html zIndexRange={[10, 0]}>
-                  <div className="z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer">
+                  <div
+                    className={`${
+                      snap.displayArtInfo ? "hidden" : "block"
+                    } z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer`}
+                    onClick={() => (store.displayArtInfo = true)}
+                  >
                     <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.frame}`}</h1>
                     <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
                   </div>
@@ -62,6 +68,7 @@ export default function Gallary1(props) {
           </RigidBody>
         ))}
       </group>
+
       <RigidBody type={"fixed"}>
         <mesh
           name="receptionDesk"

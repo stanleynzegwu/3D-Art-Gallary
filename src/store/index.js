@@ -7,4 +7,5 @@ export const store = proxy({
     currentIntersectedObject:null,
     experience:false,
     audio:true,
+    displayArtInfo: false,
 });
