@@ -70,16 +70,19 @@ const Player = () => {
     const { forward, backward, leftward, rightward } = getKeys();
     //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
     playAnimation([forward, backward, leftward, rightward]);
-    playerdirection(
-      [forward, backward, leftward, rightward],
-      camera,
-      rigidPlayer.current,
-      player.current,
-      delta,
-      controls,
-      rapier,
-      world
-    );
+
+    if (snap.keypressIsEnabled) {
+      playerdirection(
+        [forward, backward, leftward, rightward],
+        camera,
+        rigidPlayer.current,
+        player.current,
+        delta,
+        controls,
+        rapier,
+        world
+      );
+    }
   });
   return (
     <>

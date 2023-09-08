@@ -51,13 +51,17 @@ export default function Gallary1(props) {
                 document.body.style.cursor = "default";
               }}
             >
+              {/* Display the popup if currentIntersectedObject is not null(that means the player is near an art) */}
               {snap.currentIntersectedObject?.frame === name && (
                 <Html zIndexRange={[10, 0]}>
                   <div
                     className={`${
                       snap.displayArtInfo ? "hidden" : "block"
                     } z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer`}
-                    onClick={() => (store.displayArtInfo = true)}
+                    onClick={() => {
+                      store.displayArtInfo = true;
+                      store.keypressIsEnabled = false;
+                    }}
                   >
                     <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.frame}`}</h1>
                     <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>

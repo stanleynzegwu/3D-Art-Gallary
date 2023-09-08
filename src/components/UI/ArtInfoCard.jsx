@@ -12,7 +12,10 @@ export default function ArtInfoCard() {
           src={closeIcon}
           alt="closeIcon"
           className="bg-white p-2 rounded-full absolute top-[15px] right-[15px] w-[31px] aspect-square cursor-pointer"
-          onClick={() => (store.displayArtInfo = false)}
+          onClick={() => {
+            store.displayArtInfo = false;
+            store.keypressIsEnabled = true;
+          }}
         />
         <div className=" w-[55%] pointer-events-none flex flex-col gap-5">
           <h1 className="capitalize font-bold">{frame}</h1>
