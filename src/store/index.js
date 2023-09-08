@@ -4,6 +4,7 @@ export const store = proxy({
     movementType: 'Walking',
     currentAnimation: 'Standing',
     collision: false,
-    groundFramesToTest: null,
-    experience:false
+    currentIntersectedObject:null,
+    experience:false,
+    audio:true,
 });

@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { RigidBody, interactionGroups } from "@react-three/rapier";
 
 export default function Gallary3() {
   const { nodes } = useGLTF("/models/gallaryModel3.glb");
@@ -22,19 +21,19 @@ export default function Gallary3() {
 
   return (
     <group dispose={null}>
-      <RigidBody
+      {/* <RigidBody
         type="fixed"
         friction={3}
         name="groundFloor"
         collisionGroups={interactionGroups(1, [0, 1])}
-      >
-        <mesh
-          name="groundFloorTile"
-          geometry={nodes.groundFloorTile.geometry}
-          material={floorMaterial}
-          position={[-4.508, 0.667, -3.698]}
-        />
-      </RigidBody>
+      > */}
+      <mesh
+        name="groundFloorTile"
+        geometry={nodes.groundFloorTile.geometry}
+        material={floorMaterial}
+        position={[-4.508, 0.667, -3.698]}
+      />
+      {/* </RigidBody> */}
       <mesh
         name="ceillingAndOutsideGrass"
         geometry={nodes.ceillingAndOutsideGrass.geometry}

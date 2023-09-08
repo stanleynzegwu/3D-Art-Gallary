@@ -24,8 +24,8 @@ export default function GallaryTopfloor() {
 
   return (
     <group dispose={null}>
-      <RigidBody type="fixed">
-        {frames2(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
+      {frames2(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
+        <RigidBody type={"fixed"} userData={name} key={geometry + name}>
           <mesh
             key={geometry + name}
             name={name}
@@ -34,8 +34,9 @@ export default function GallaryTopfloor() {
             position={position}
             rotation={rotation}
           />
-        ))}
-      </RigidBody>
+        </RigidBody>
+      ))}
+
       <mesh
         name="floorTile2"
         geometry={nodes.floorTile2.geometry}

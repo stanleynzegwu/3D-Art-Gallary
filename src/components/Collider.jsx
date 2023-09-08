@@ -81,7 +81,18 @@ export default function Collider({ wallMaterial }) {
           material={material}
           position={[19.073, 6.465, -11.695]}
         />
-
+        <mesh
+          name="topGroundCollider2"
+          geometry={nodes.topGroundCollider2.geometry}
+          material={material}
+          position={[-8.818, 5.828, -3]}
+        />
+        <mesh
+          name="groundFloorCollider"
+          geometry={nodes.groundFloorCollider.geometry}
+          material={material}
+          position={[15.68, -0.333, 7.016]}
+        />
         <mesh
           name="topGroundCollider"
           geometry={nodes.topGroundCollider.geometry}
@@ -93,13 +104,6 @@ export default function Collider({ wallMaterial }) {
           geometry={nodes.smallWallup3.geometry}
           material={material}
           position={[19.073, 6.465, -38.123]}
-        />
-
-        <mesh
-          name="topGroundCollider2"
-          geometry={nodes.topGroundCollider2.geometry}
-          material={material}
-          position={[-8.818, 5.828, -3]}
         />
       </RigidBody>
       <RigidBody
@@ -114,6 +118,7 @@ export default function Collider({ wallMaterial }) {
           material={material}
           position={[19.43, 1.037, 0.718]}
         />
+
         <mesh
           name="roundPillarCollider"
           geometry={nodes.roundPillarCollider.geometry}
@@ -131,7 +136,6 @@ export default function Collider({ wallMaterial }) {
           geometry={nodes.staircaseColliderFoot.geometry}
           material={material}
           position={[20.076, 0.852, 4.391]}
-          scale={4.006}
         />
       </RigidBody>
     </group>

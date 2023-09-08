@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import React, { useEffect, useRef } from "react";
+import { Html, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames } from "../constants";
 import { RigidBody } from "@react-three/rapier";
@@ -7,6 +7,7 @@ import { useSnapshot } from "valtio";
 import { store } from "../store";
 
 export default function Gallary1(props) {
+  const snap = useSnapshot(store);
   const { nodes } = useGLTF("/models/gallaryModel1.glb");
   const texture = useTexture("textures/gallaryTexture1.jpg");
 
@@ -21,23 +22,18 @@ export default function Gallary1(props) {
     map: texture,
   });
 
-  const groundFrameGroup = useRef();
-  // if (groundFrameGroup.current) store.groundFramesToTest = groundFrameGroup.current.children;
-  // console.log(groundFrameGroup.current);
-
   return (
     <group
-      {...props}
       dispose={null}
       onClick={(event) => event.stopPropagation()}
       onPointerEnter={(event) => event.stopPropagation()}
     >
-      <RigidBody type={"fixed"}>
-        <group ref={groundFrameGroup}>
-          {frames(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
+      <group>
+        {frames(nodes, textureMaterial).map(({ name, geometry, position, rotation, userData }) => (
+          <RigidBody type={"fixed"} userData={userData} key={geometry + name}>
             <mesh
-              key={geometry + name}
               name={name}
+              userData={userData}
               geometry={geometry}
               material={textureMaterial}
               position={position}
@@ -53,9 +49,20 @@ export default function Gallary1(props) {
                 event.stopPropagation();
                 document.body.style.cursor = "default";
               }}
-            />
-          ))}
-        </group>
+            >
+              {snap.currentIntersectedObject?.frame === name && (
+                <Html zIndexRange={[10, 0]}>
+                  <div className="z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer">
+                    <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.frame}`}</h1>
+                    <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
+                  </div>
+                </Html>
+              )}
+            </mesh>
+          </RigidBody>
+        ))}
+      </group>
+      <RigidBody type={"fixed"}>
         <mesh
           name="receptionDesk"
           geometry={nodes.receptionDesk.geometry}

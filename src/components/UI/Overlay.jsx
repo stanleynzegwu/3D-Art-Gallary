@@ -3,7 +3,7 @@ import TypingText from "./TypingText";
 
 export default function Overlay() {
   return (
-    <div className="overlay bg-white z-10">
+    <div className="overlay bg-white z-20">
       <div className="w-[80%] h-[80%] md:w-[50%] xl:w-[40%] rounded-xl bg-black shadow-lg shadow-black">
         <img
           src="https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"

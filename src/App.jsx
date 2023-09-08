@@ -1,10 +1,11 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { KeyboardControls, Loader } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 import Experience from "./Experience";
 import Overlay from "./components/UI/Overlay";
 import { store } from "./store";
 import { useSnapshot } from "valtio";
+import Audio from "./components/UI/Audio";
 
 export default function App() {
   const snap = useSnapshot(store);
@@ -36,7 +37,9 @@ export default function App() {
       </KeyboardControls>
 
       <Loader />
+
       {!snap.experience && <Overlay />}
+      <Audio />
     </main>
   );
 }

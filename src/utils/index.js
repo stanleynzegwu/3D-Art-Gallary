@@ -61,7 +61,7 @@ const updateCameraTarget = (camera,rigidPlayer,moveX, moveZ,orbitControl) => {
   orbitControl.target = cameraTarget
 }
 
-export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,control) => {
+export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,control,rapier,world) => {
   const directionOffsetFunc = (keyPressed) => {
     let directionOffset = 0 //w
   
@@ -125,8 +125,28 @@ export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,contr
         rigidPlayer.setTranslation(playerPosition, true)
 
         updateCameraTarget(camera,rigidPlayer,moveX, moveZ, control)
+        raycast(rigidPlayer,player,rapier,world)
     }
 
 }
 
+export const raycast = (rigidPlayer,player,rapier,world) => {
+  const origin = rigidPlayer.translation()
+  origin.y += 1.3
+  const direction = player.getWorldDirection(new THREE.Vector3())
+  direction.normalize()
 
+  const ray = new rapier.Ray(origin, direction)
+  const hit = world.castRay(ray)
+
+  if(hit){
+    
+    if((hit.toi <= 4) && (hit.collider._parent.userData !== undefined)){
+      if(store.currentIntersectedObject?.frame !== hit.collider._parent.userData.frame){
+        store.currentIntersectedObject = hit.collider._parent.userData
+      }
+    }else{
+      store.currentIntersectedObject = null
+    }
+  }
+}

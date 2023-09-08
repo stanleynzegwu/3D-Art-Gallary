@@ -1,15 +1,16 @@
 import { useKeyboardControls, useGLTF, useFBX, useAnimations, Clone } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { RigidBody, CapsuleCollider, interactionGroups } from "@react-three/rapier";
+import { useRapier, RigidBody, CapsuleCollider, interactionGroups } from "@react-three/rapier";
 import { useEffect, useRef } from "react";
 import { useSnapshot } from "valtio";
 import * as THREE from "three";
 
 import { store } from "../store";
-import { playAnimation, playerdirection, toggleMovement } from "../utils";
+import { playAnimation, playerdirection, raycast, toggleMovement } from "../utils";
 
 //cHARACTER ANIMATION
 const Player = () => {
+  const { rapier, world } = useRapier();
   const snap = useSnapshot(store);
   const avatar = useGLTF("models/avatar.glb");
   const player = useRef();
@@ -64,7 +65,7 @@ const Player = () => {
     };
   }, []);
 
-  useFrame(({ camera, controls }, delta) => {
+  useFrame(({ camera, controls, ...state }, delta) => {
     //KEYBOARDCONTROLS
     const { forward, backward, leftward, rightward } = getKeys();
     //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
@@ -75,7 +76,9 @@ const Player = () => {
       rigidPlayer.current,
       player.current,
       delta,
-      controls
+      controls,
+      rapier,
+      world
     );
   });
   return (
@@ -88,8 +91,8 @@ const Player = () => {
         friction={3}
         colliders={false}
         ref={rigidPlayer}
-        position={[11, 1.5, 19]}
-        collisionGroups={interactionGroups(0, [0, 1])}
+        position={[11, 2, 19]}
+        // collisionGroups={interactionGroups(0, [0, 1])}
         onCollisionEnter={() => {
           store.collision = true;
         }}

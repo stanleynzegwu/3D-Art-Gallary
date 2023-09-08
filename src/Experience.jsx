@@ -1,6 +1,6 @@
 import { useMemo, useEffect, Suspense } from "react";
 import * as THREE from "three";
-import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
+import { OrbitControls, Center, Environment, useTexture, PositionalAudio } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import { makeFullScreen } from "./utils";
@@ -34,29 +34,7 @@ export default function Experience() {
     map: wallTexture,
   });
 
-  // useEffect(() => {
-  //   const timeline = gsap.timeline();
-  //   // Define different paths for the camera to follow
-  //   timeline
-  //     .to(
-  //       camera.position,
-  //       {
-  //         z: camera.position.z - 16,
-  //         x: camera.position.x - 2,
-  //         ease: "linear",
-  //         duration: 3,
-  //       },
-  //       "-=1"
-  //     )
-  //     .to(camera.position, {
-  //       y: "+=1",
-
-  //       ease: "linear",
-  //       duration: 3,
-  //     });
-  // }, []);
-  const snap = useSnapshot(store);
-  function gsapp() {
+  useEffect(() => {
     const timeline = gsap.timeline();
     // Define different paths for the camera to follow
     timeline
@@ -76,29 +54,29 @@ export default function Experience() {
         ease: "linear",
         duration: 3,
       });
-  }
-  snap.experience && gsapp();
+  }, []);
 
   return (
     <>
       <Perf position="top-left" />
       <OrbitControls
         makeDefault
-        // maxPolarAngle={Math.PI / 2 - 0.02} // Maximum elevation angle (looking upwards)
-        // minPolarAngle={0} // Minimum elevation angle (looking downwards)
-        // maxAzimuthAngle={Math.PI / 2} // Maximum azimuth angle (left and right rotation)
-        // minAzimuthAngle={-Math.PI / 2} // Minim
+        // minAzimuthAngle={-Math.PI / 4}
+        // maxAzimuthAngle={Math.PI / 4} // Maximum azimuth angle (left and right rotation)
+        minPolarAngle={Math.PI / 2} // Minimum elevation angle (looking downwards)
+        maxPolarAngle={Math.PI - Math.PI / 3} // Maximum elevation angle (looking upwards)
       />
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
-      <Environment
+      {/* <Environment
         preset="city"
         ground={{
           height: 7,
           radius: 28,
           scale: 100,
         }}
-      />
+      /> */}
       <ambientLight intensity={0.5} />
+      {/* <PositionalAudio autoplay loop url="/audio/meditation.mp3" distance={3} /> */}
 
       <Center>
         <Gallary1 />
