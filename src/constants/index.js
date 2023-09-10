@@ -599,7 +599,7 @@ export const frames2 = (nodes,textureMaterial) =>
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
         'image':{
-          'url':'bg-bg-sprite2',
+          'url':'bg-sprite2',
           'background-position': '-403px -1207px',
         }
       }
