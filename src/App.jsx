@@ -27,7 +27,8 @@ export default function App() {
             fov: 30,
             near: 0.1,
             far: 200,
-            position: [19, -4, 47],
+            // position: [19, -4, 47]
+            position: [19, -2.399893760681152, 47],
           }}
         >
           <Physics debug>

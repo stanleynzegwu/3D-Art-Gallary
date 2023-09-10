@@ -53,6 +53,7 @@ const updateCameraTarget = (camera,rigidPlayer,moveX, moveZ,orbitControl) => {
   // move camera
   camera.position.x -= moveX
   camera.position.z -= moveZ
+  camera.position.y = rigidPlayer.translation().y + 2 
 
   // update camera target
   cameraTarget.x = rigidPlayer.translation().x

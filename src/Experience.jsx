@@ -39,23 +39,17 @@ export default function Experience() {
     if (snap.start) {
       const timeline = gsap.timeline();
       // Define different paths for the camera to follow
-      timeline
-        .to(
-          camera.position,
-          {
-            z: camera.position.z - 16,
-            x: camera.position.x - 2,
-            ease: "linear",
-            duration: 3,
-          },
-          "-=1"
-        )
-        .to(camera.position, {
-          y: "+=1",
-
+      timeline.to(
+        camera.position,
+        {
+          z: camera.position.z - 16,
+          x: camera.position.x - 2,
+          y: camera.position.y - 1,
           ease: "linear",
           duration: 3,
-        });
+        },
+        "-=1"
+      );
     }
   }, [snap.start]);
 

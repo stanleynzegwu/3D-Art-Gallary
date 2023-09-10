@@ -1,4 +1,4 @@
-import { useKeyboardControls, useGLTF, useFBX, useAnimations, Clone } from "@react-three/drei";
+import { useKeyboardControls, useGLTF, useFBX, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRapier, RigidBody, CapsuleCollider, interactionGroups } from "@react-three/rapier";
 import { useEffect, useRef } from "react";
@@ -6,7 +6,7 @@ import { useSnapshot } from "valtio";
 import * as THREE from "three";
 
 import { store } from "../store";
-import { playAnimation, playerdirection, raycast, toggleMovement } from "../utils";
+import { playAnimation, playerdirection, toggleMovement } from "../utils";
 
 //cHARACTER ANIMATION
 const Player = () => {
@@ -65,7 +65,7 @@ const Player = () => {
     };
   }, []);
 
-  useFrame(({ camera, controls, ...state }, delta) => {
+  useFrame(({ camera, controls }, delta) => {
     //KEYBOARDCONTROLS
     const { forward, backward, leftward, rightward } = getKeys();
     //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
