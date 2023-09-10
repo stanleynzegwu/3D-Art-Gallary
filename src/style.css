@@ -87,3 +87,13 @@ body,
     transform: rotate(180deg); /* Adjust the rotation angle */
 
 }
+
+/* .sprite {
+    background-image: url(/images/spritesheet1-compressed.jpg);
+    background-repeat: no-repeat;
+    display: block;
+    width: 400px;
+    height: 400px;
+    background-position: -406px -2px;
+    transform: scale(0.5); 
+} */

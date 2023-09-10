@@ -18,7 +18,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame1",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-406px -2px',
+        }
       }
     },
     {
@@ -31,7 +34,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"circleFrame",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -2px',
+        }
       }
     },
     {
@@ -44,7 +50,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame2",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -1214px',
+        }
       }
     },
     {
@@ -57,7 +66,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame3",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1214px -1214px',
+        }
       }
     },
     {
@@ -70,7 +82,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame4",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1618px -2px',
+        }
       }
     },
     {
@@ -83,7 +98,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame5",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1618px -406px',
+        }
       }
     },
     {
@@ -96,7 +114,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame6",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1618px -810px',
+        }
       }
     },
     {
@@ -109,7 +130,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame7",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1618px -1214px',
+        }
       }
     },
     {
@@ -122,7 +146,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame8",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -1618px',
+        }
       }
     },
     {
@@ -135,7 +162,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame9",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-406px -1618px',
+        }
       }
     },
     {
@@ -148,7 +178,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame10",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-810px -2px',
+        }
       }
     },
     {
@@ -161,7 +194,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame11",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1214px -2px',
+        }
       }
     },
     {
@@ -174,7 +210,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame12",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -406px',
+        }
       }
     },
     {
@@ -187,7 +226,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame13",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-406px -406px',
+        }
       }
     },
     {
@@ -200,7 +242,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame14",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-810px -406px',
+        }
       }
     },
     {
@@ -213,7 +258,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame15",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1214px -406px',
+        }
       }
     },
     {
@@ -226,7 +274,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame16",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -810px',
+        }
       }
     },
     {
@@ -239,7 +290,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame17",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-406px -810px',
+        }
       }
     },
     {
@@ -252,7 +306,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame18",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-810px -810px',
+        }
       }
     },
     {
@@ -265,7 +322,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame19",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-1214px -810px',
+        }
       }
     },
     {
@@ -278,7 +338,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame20",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-406px -1214px',
+        }
       }
     },
     {
@@ -291,7 +354,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame21",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-810px -1214px',
+        }
       }
     },
     {
@@ -304,7 +370,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame22",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1px -1px',
+        }
       }
     },
     {
@@ -317,7 +386,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame23",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-403px -1px',
+        }
       }
     },
     {
@@ -330,7 +402,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame24",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-805px -1px',
+        }
       }
     },
     {
@@ -343,7 +418,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame25",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1207px -1px',
+        }
       }
     },
     {
@@ -356,7 +434,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame26",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1px -403px',
+        }
       }
     },
     {
@@ -369,7 +450,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame27",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-403px -403px',
+        }
       }
     },
     {
@@ -382,7 +466,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame28",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-805px -403px',
+        }
       }
     },
     {
@@ -395,7 +482,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame29",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1207px -403px',
+        }
       }
     },
     {
@@ -408,7 +498,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame30",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1px -805px',
+        }
       }
     },
     {
@@ -421,7 +514,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame31",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-403px -805px',
+        }
       }
     },
     {
@@ -434,7 +530,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame32",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-805px -805px',
+        }
       }
     },
     {
@@ -447,7 +546,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame33",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -1618px',
+        }
       }
     },
     {
@@ -460,7 +562,10 @@ export const frames = (nodes,textureMaterial) => [
         'frame':"frame34",
         'name': 'Plaster of Paris',
         'Artist': 'Leonardo da Vinci',
-        'img':"https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1207px -805px',
+        }
       }
     },
 ]
@@ -473,6 +578,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-12.008, 7.388, 9.252],
       'rotation':[-Math.PI / 2, 0, 0],
+      'userData':{
+        'frame':"frame35",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1px -1207px',
+        }
+      }
     },
     {
       'name':"frame36",
@@ -480,6 +594,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-13.168, 7.388, 9.252],
       'rotation':[-Math.PI / 2, 0, -Math.PI],
+      'userData':{
+        'frame':"frame36",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-bg-sprite2',
+          'background-position': '-403px -1207px',
+        }
+      }
     },
     {
       'name':"frame37",
@@ -487,6 +610,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-27.549, 7.388, 9.252],
       'rotation':[-Math.PI / 2, 0, 0],
+      'userData':{
+        'frame':"frame37",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-810px -1214px',
+        }
+      }
     },
     {
       'name':"frame38",
@@ -494,6 +626,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-28.693, 7.388, 9.151],
       'rotation':[-Math.PI / 2, 0, -Math.PI],
+      'userData':{
+        'frame':"frame38",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite1',
+          'background-position': '-2px -1618px',
+        }
+      }
     },
     {
       'name':"frame39",
@@ -501,6 +642,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-27.549, 7.385, -4.233],
       'rotation':[-Math.PI / 2, 0, 0],
+      'userData':{
+        'frame':"frame39",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-805px -1207px',
+        }
+      }
     },
     {
       'name':"frame40",
@@ -508,6 +658,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-28.712, 7.385, -4.233],
       'rotation':[-Math.PI / 2, 0, -Math.PI],
+      'userData':{
+        'frame':"frame40",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1207px -1207px',
+        }
+      }
     },
     {
       'name':"frame41",
@@ -515,6 +674,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-12.008, 7.388, -4.248],
       'rotation':[-Math.PI / 2, 0, 0],
+      'userData':{
+        'frame':"frame41",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1609px -1px',
+        }
+      }
     },
     {
       'name':"frame42",
@@ -522,6 +690,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-13.168, 7.388, -4.248],
       'rotation':[-Math.PI / 2, 0, -Math.PI],
+      'userData':{
+        'frame':"frame42",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1609px -403px',
+        }
+      }
     },
     {
       'name':"frame43",
@@ -529,6 +706,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-7.819, 7.516, 20.455],
       'rotation':[0, 1.571, 0],
+      'userData':{
+        'frame':"frame43",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1609px -805px',
+        }
+      }
     },
     {
       'name':"frame44",
@@ -536,6 +722,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[23.334, 7.516, -27.651],
       'rotation':[0, -Math.PI / 2, 0],
+      'userData':{
+        'frame':"frame44",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1609px -1207px',
+        }
+      }
     },
     {
       'name':"frame45",
@@ -543,6 +738,15 @@ export const frames2 = (nodes,textureMaterial) =>
       'material':textureMaterial,
       'position':[-7.819, 7.516, -27.651],
       'rotation':[0, -Math.PI / 2, 0],
+      'userData':{
+        'frame':"frame45",
+        'name': 'Plaster of Paris',
+        'Artist': 'Leonardo da Vinci',
+        'image':{
+          'url':'bg-sprite2',
+          'background-position': '-1px -1609px',
+        }
+      }
     },
 ]
 

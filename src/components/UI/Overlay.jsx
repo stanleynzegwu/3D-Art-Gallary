@@ -18,10 +18,13 @@ export default function Overlay() {
             <span className="text-sm ">WASD/Arrow Keys - Move player</span>
             <span className="text-sm">Shift Key - Toggle Walk/Run</span>
           </div>
-          <TypingText intervalDuration={10} />
+          <TypingText />
           <button
             onClick={() => {
-              store.experience = true;
+              //Start The Experience
+              store.start = true;
+              //Enable player control
+              store.keypressIsEnabled = true;
             }}
             className="text-md font-semibold text-black bg-white border-white border-2 px-4 py-1 rounded-lg hover:bg-black hover:text-white transition duration-500 ease-in-out"
           >

@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { Html, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames2 } from "../constants";
 import { RigidBody } from "@react-three/rapier";
+import { useSnapshot } from "valtio";
+import { store } from "../store";
 
 export default function GallaryTopfloor() {
+  const snap = useSnapshot(store);
   const { nodes } = useGLTF("/models/gallaryTopFloor.glb");
 
   const texture = useTexture("textures/gallaryTopFloor.jpg");
@@ -24,16 +27,35 @@ export default function GallaryTopfloor() {
 
   return (
     <group dispose={null}>
-      {frames2(nodes, textureMaterial).map(({ name, geometry, position, rotation }) => (
-        <RigidBody type={"fixed"} userData={name} key={geometry + name}>
+      {/* TOPFLOOR ART PAINTINGS */}
+      {frames2(nodes, textureMaterial).map(({ name, geometry, position, rotation, userData }) => (
+        <RigidBody type={"fixed"} userData={userData} key={geometry + name}>
           <mesh
-            key={geometry + name}
             name={name}
+            userData={userData}
             geometry={geometry}
             material={textureMaterial}
             position={position}
             rotation={rotation}
-          />
+          >
+            {/* Display the pop-up if currentIntersectedObject is not null(that means the player is near an art) */}
+            {snap.currentIntersectedObject?.frame === name && (
+              <Html zIndexRange={[10, 0]}>
+                <div
+                  className={`${
+                    snap.displayArtInfo ? "hidden" : "block"
+                  } z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer`}
+                  onClick={() => {
+                    store.displayArtInfo = true;
+                    store.keypressIsEnabled = false;
+                  }}
+                >
+                  <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.frame}`}</h1>
+                  <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
+                </div>
+              </Html>
+            )}
+          </mesh>
         </RigidBody>
       ))}
 

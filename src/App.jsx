@@ -38,7 +38,7 @@ export default function App() {
 
       <Loader />
 
-      {!snap.experience && <Overlay />}
+      {!snap.start && <Overlay />}
       {snap.displayArtInfo && <ArtInfoCard />}
       <Audio />
     </main>

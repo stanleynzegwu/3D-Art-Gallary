@@ -21,6 +21,7 @@ import {
 } from "./components";
 
 export default function Experience() {
+  const snap = useSnapshot(store);
   const { gl, camera } = useThree();
 
   //Toggle Fullscreen
@@ -35,26 +36,28 @@ export default function Experience() {
   });
 
   useEffect(() => {
-    const timeline = gsap.timeline();
-    // Define different paths for the camera to follow
-    timeline
-      .to(
-        camera.position,
-        {
-          z: camera.position.z - 16,
-          x: camera.position.x - 2,
+    if (snap.start) {
+      const timeline = gsap.timeline();
+      // Define different paths for the camera to follow
+      timeline
+        .to(
+          camera.position,
+          {
+            z: camera.position.z - 16,
+            x: camera.position.x - 2,
+            ease: "linear",
+            duration: 3,
+          },
+          "-=1"
+        )
+        .to(camera.position, {
+          y: "+=1",
+
           ease: "linear",
           duration: 3,
-        },
-        "-=1"
-      )
-      .to(camera.position, {
-        y: "+=1",
-
-        ease: "linear",
-        duration: 3,
-      });
-  }, []);
+        });
+    }
+  }, [snap.start]);
 
   return (
     <>

@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'sprite1': 'url(/images/spritesheet1-compressed.jpg)',
+        'sprite2': 'url(/images/spritesheet2-compressed.jpg)',
+      },
+    },
   },
   plugins: [],
 }
