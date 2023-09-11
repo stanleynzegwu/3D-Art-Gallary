@@ -19,6 +19,9 @@ import {
   OtherCollection,
   Receptionist,
 } from "./components";
+const audio = new Audio("/audio/meditation.mp3");
+audio.volume = 0.3;
+audio.loop = true;
 
 export default function Experience() {
   const snap = useSnapshot(store);
@@ -52,6 +55,16 @@ export default function Experience() {
       );
     }
   }, [snap.start]);
+
+  useEffect(() => {
+    if (snap.audio) {
+      audio.play();
+    }
+
+    return () => {
+      audio.pause();
+    };
+  }, [snap.audio]);
 
   return (
     <>

@@ -7,6 +7,7 @@ import { store } from "./store";
 import { useSnapshot } from "valtio";
 import Audio from "./components/UI/Audio";
 import ArtInfoCard from "./components/UI/ArtInfoCard";
+import { Suspense } from "react";
 
 export default function App() {
   const snap = useSnapshot(store);
@@ -32,12 +33,14 @@ export default function App() {
           }}
         >
           <Physics debug>
-            <Experience />
+            <Suspense fallback={null}>
+              <Experience />
+            </Suspense>
           </Physics>
         </Canvas>
       </KeyboardControls>
 
-      <Loader />
+      {/* <Loader /> */}
 
       {!snap.start && <Overlay />}
       {snap.displayArtInfo && <ArtInfoCard />}

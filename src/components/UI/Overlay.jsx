@@ -1,7 +1,9 @@
+import { useProgress } from "@react-three/drei";
 import { store } from "../../store";
 import TypingText from "./TypingText";
 
 export default function Overlay() {
+  const progress = useProgress((state) => state.progress);
   return (
     <div className="overlay bg-white z-20">
       <div className="w-[80%] h-[80%] md:w-[50%] xl:w-[40%] rounded-xl bg-black shadow-lg shadow-black">
@@ -20,20 +22,21 @@ export default function Overlay() {
           </div>
           <TypingText />
           <button
+            disabled={progress < 100}
             onClick={() => {
               //Start The Experience
               store.start = true;
               //Enable player control
               store.keypressIsEnabled = true;
+              //start Audio
+              store.audio = true;
             }}
-            className="text-md font-semibold text-black bg-white border-white border-2 px-4 py-1 rounded-lg hover:bg-black hover:text-white transition duration-500 ease-in-out"
+            className="w-[150px] text-md font-semibold text-black bg-white border-white border-2 px-4 py-1 rounded-lg hover:bg-black hover:text-white transition duration-500 ease-in-out"
           >
-            EXPLORE
+            {progress < 100 ? `Loading ${Math.round(progress)}%` : "EXPLORE"}
           </button>
         </div>
       </div>
-
-      {/* <img className="atlas" /> */}
     </div>
   );
 }
