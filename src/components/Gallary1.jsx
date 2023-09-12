@@ -41,7 +41,6 @@ export default function Gallary1(props) {
               rotation={rotation}
               onClick={(event) => {
                 event.stopPropagation();
-                console.log(event);
               }}
               onPointerEnter={(event) => {
                 document.body.style.cursor = "pointer";
@@ -52,7 +51,7 @@ export default function Gallary1(props) {
               }}
             >
               {/* Display the popup if currentIntersectedObject is not null(that means the player is near an art) */}
-              {snap.currentIntersectedObject?.frame === name && (
+              {snap.currentIntersectedObject?.frame === userData.frame && (
                 <Html zIndexRange={[10, 0]}>
                   <div
                     className={`${
@@ -64,7 +63,7 @@ export default function Gallary1(props) {
                       store.keypressIsEnabled = false;
                     }}
                   >
-                    <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.frame}`}</h1>
+                    <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.name}`}</h1>
                     <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
                   </div>
                 </Html>

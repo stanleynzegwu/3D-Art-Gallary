@@ -1,6 +1,6 @@
 import { useMemo, useEffect, Suspense } from "react";
 import * as THREE from "three";
-import { OrbitControls, Center, Environment, useTexture, PositionalAudio } from "@react-three/drei";
+import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import { makeFullScreen } from "./utils";
@@ -86,8 +86,6 @@ export default function Experience() {
         }}
       /> */}
       <ambientLight intensity={0.5} />
-      {/* <PositionalAudio autoplay loop url="/audio/meditation.mp3" distance={3} /> */}
-
       <Center>
         <Gallary1 />
         <Gallary2 />
@@ -97,8 +95,8 @@ export default function Experience() {
         <GallaryWall wallMaterial={wallMaterial} />
         <Collider wallMaterial={wallMaterial} />
         <OtherCollection />
-        <Player />
         <Receptionist />
+        <Player />
       </Center>
     </>
   );

@@ -106,6 +106,14 @@ export default function Collider({ wallMaterial }) {
           position={[19.073, 6.465, -38.123]}
         />
       </RigidBody>
+      <RigidBody type="fixed" colliders={"hull"}>
+        <mesh
+          name="roundPillarCollider"
+          geometry={nodes.roundPillarCollider.geometry}
+          material={wallMaterial}
+          position={[19.573, 3.956, 0.504]}
+        />
+      </RigidBody>
       <RigidBody
         type="fixed"
         colliders={"trimesh"}
@@ -119,12 +127,6 @@ export default function Collider({ wallMaterial }) {
           position={[19.43, 1.037, 0.718]}
         />
 
-        <mesh
-          name="roundPillarCollider"
-          geometry={nodes.roundPillarCollider.geometry}
-          material={wallMaterial}
-          position={[19.573, 3.956, 0.504]}
-        />
         <mesh
           name="staircaseCollider"
           geometry={nodes.staircaseCollider.geometry}

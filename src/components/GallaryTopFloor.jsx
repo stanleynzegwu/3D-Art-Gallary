@@ -39,7 +39,7 @@ export default function GallaryTopfloor() {
             rotation={rotation}
           >
             {/* Display the pop-up if currentIntersectedObject is not null(that means the player is near an art) */}
-            {snap.currentIntersectedObject?.frame === name && (
+            {snap.currentIntersectedObject?.frame === userData.frame && (
               <Html zIndexRange={[10, 0]}>
                 <div
                   className={`${
@@ -51,7 +51,7 @@ export default function GallaryTopfloor() {
                     store.keypressIsEnabled = false;
                   }}
                 >
-                  <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.frame}`}</h1>
+                  <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.name}`}</h1>
                   <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
                 </div>
               </Html>
