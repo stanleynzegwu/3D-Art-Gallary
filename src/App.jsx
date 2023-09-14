@@ -32,7 +32,7 @@ export default function App() {
             position: [19, -2.399893760681152, 47],
           }}
         >
-          <Physics debug>
+          <Physics>
             <Suspense fallback={null}>
               <Experience />
             </Suspense>

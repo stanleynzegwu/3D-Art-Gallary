@@ -19,6 +19,7 @@ import {
   OtherCollection,
   Receptionist,
 } from "./components";
+import { Test } from "./components/Test";
 const audio = new Audio("/audio/meditation.mp3");
 audio.volume = 0.3;
 audio.loop = true;
@@ -68,7 +69,7 @@ export default function Experience() {
 
   return (
     <>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <OrbitControls
         makeDefault
         // minAzimuthAngle={-Math.PI / 4}
@@ -96,6 +97,7 @@ export default function Experience() {
         <Collider wallMaterial={wallMaterial} />
         <OtherCollection />
         <Receptionist />
+        {/* <Test /> */}
         <Player />
       </Center>
     </>

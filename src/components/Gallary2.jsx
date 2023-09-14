@@ -1,9 +1,13 @@
 import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { Html, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { RigidBody } from "@react-three/rapier";
+import { pivots } from "../constants";
+import { store } from "../store";
+import { useSnapshot } from "valtio";
 
 export default function Gallary2(props) {
+  const snap = useSnapshot(store);
   const { nodes } = useGLTF("/models/gallaryModel2.glb");
 
   const texture = useTexture("textures/gallaryTexture2.jpg");
@@ -17,6 +21,36 @@ export default function Gallary2(props) {
 
   return (
     <group {...props} dispose={null}>
+      {pivots(nodes, textureMaterial).map(({ name, geometry, position, userData }) => (
+        <RigidBody type={"fixed"} userData={userData} key={geometry + name}>
+          <mesh
+            name={name}
+            userData={userData}
+            geometry={geometry}
+            material={textureMaterial}
+            position={position}
+          >
+            {/* Display the popup if currentIntersectedObject is not null(that means the player is near an art) */}
+            {snap.currentIntersectedObject?.frame === userData.frame && (
+              <Html zIndexRange={[10, 0]}>
+                <div
+                  className={`${
+                    snap.displayArtInfo ? "hidden" : "block"
+                  } z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer`}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    store.displayArtInfo = true;
+                    store.keypressIsEnabled = false;
+                  }}
+                >
+                  <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.name}`}</h1>
+                  <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
+                </div>
+              </Html>
+            )}
+          </mesh>
+        </RigidBody>
+      ))}
       <mesh
         name="officeChairUpper1002"
         geometry={nodes.officeChairUpper1002.geometry}
@@ -79,66 +113,6 @@ export default function Gallary2(props) {
         rotation={[Math.PI / 2, 0, Math.PI / 2]}
       />
       <RigidBody type="fixed">
-        <mesh
-          name="pivot003"
-          geometry={nodes.pivot003.geometry}
-          material={textureMaterial}
-          position={[-26.946, 0.667, 16.181]}
-        />
-        <mesh
-          name="pivot2003"
-          geometry={nodes.pivot2003.geometry}
-          material={textureMaterial}
-          position={[-16.946, 0.667, 16.181]}
-        />
-        <mesh
-          name="pivot3003"
-          geometry={nodes.pivot3003.geometry}
-          material={textureMaterial}
-          position={[-16.946, 0.667, -15.819]}
-        />
-        <mesh
-          name="pivot4003"
-          geometry={nodes.pivot4003.geometry}
-          material={textureMaterial}
-          position={[-25.461, 0.667, -19.882]}
-        />
-        <mesh
-          name="pivot5003"
-          geometry={nodes.pivot5003.geometry}
-          material={textureMaterial}
-          position={[-1.946, 0.667, 16.181]}
-        />
-        <mesh
-          name="pivot6003"
-          geometry={nodes.pivot6003.geometry}
-          material={textureMaterial}
-          position={[-1.946, 0.667, -15.819]}
-        />
-        <mesh
-          name="pivot8003"
-          geometry={nodes.pivot8003.geometry}
-          material={textureMaterial}
-          position={[24.515, 1.367, -19.029]}
-        />
-        <mesh
-          name="pivot9003"
-          geometry={nodes.pivot9003.geometry}
-          material={textureMaterial}
-          position={[24.515, 1.367, -20.101]}
-        />
-        <mesh
-          name="pivot10003"
-          geometry={nodes.pivot10003.geometry}
-          material={textureMaterial}
-          position={[24.515, 1.367, -21.032]}
-        />
-        <mesh
-          name="pivot7003"
-          geometry={nodes.pivot7003.geometry}
-          material={textureMaterial}
-          position={[28.434, 1.367, -16.356]}
-        />
         <mesh
           name="sofa002"
           geometry={nodes.sofa002.geometry}

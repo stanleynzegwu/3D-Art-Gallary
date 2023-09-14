@@ -7,8 +7,8 @@ export default function ArtInfoCard() {
   const { name, Artist, description, image } = snap.currentIntersectedObject;
 
   return (
-    <div className="text-white z-20 w-[100%] h-[100%] absolute top-0 flex flex-col justify-center items-center bg-black bg-opacity-20 transition duration-500 ease-in-out">
-      <div className="p-10 w-[80%] h-[80%]  rounded-xl bg-black  relative flex gap-2">
+    <div className="text-white z-20 w-[100%] h-[100%] absolute top-0 flex flex-col justify-center items-center bg-black bg-opacity-20 transition duration-200 ease-in-out">
+      <div className="p-8 w-[95%] h-[95%]  md:w-[90%] lg:w-[90%] lg:h-[80%] xl:w-[80%]  rounded-xl bg-black  relative flex flex-col md:flex-row gap-2">
         <img
           src={closeIcon}
           alt="closeIcon"
@@ -18,29 +18,33 @@ export default function ArtInfoCard() {
             store.keypressIsEnabled = true;
           }}
         />
-        <div className=" w-[55%] pointer-events-none flex flex-col gap-5">
+        <div className=" w-[100%] md:w-[55%] h-full pointer-events-none flex flex-col gap-5 justify-center">
           <h1 className="capitalize font-bold">{name}</h1>
           <p className="">
             Artist- <span className="font-semibold">{Artist}</span>
           </p>
-          <p className="pointer-events-none">{description}</p>
+          <p className="pointer-events-none text-sm md:text-base xl:text-lg">{description}</p>
         </div>
-        {/* <img
-          src={snap.currentIntersectedObject.img}
-          alt="art-image"
-          className="w-[45%] h-full object-cover rounded-sm pointer-events-none"
-        /> */}
-        {/* <p className="w-[45%] bg-white h-full object-cover rounded-sm pointer-events-none  flex items-center justify-center">
-          <i className="sprite " />
-        </p> */}
-        <p className="w-[45%] h-full  rounded-sm pointer-events-none  flex items-center justify-center">
+        <p className="hidden w-[100%] md:w-[45%] h-full rounded-sm pointer-events-none sm:flex items-center justify-center overflow-hidden">
           <i
-            className={`${image.url} bg-no-repeat block  w-[400px] h-[400px]`}
+            className={`${image.url} bg-no-repeat block w-[400px] h-[400px]`}
             style={{
               backgroundPosition: `${image["background-position"]}`,
             }}
           />
         </p>
+        {/* <p className="w-[45%] h-full rounded-sm pointer-events-none flex items-center justify-center">
+          <img
+            src={image.url} // Make sure to provide the image URL
+            alt="Your Image"
+            className={`${image.url} bg-no-repeat block w-[400px] h-[400px] aspect-square`}
+            style={{
+              backgroundPosition: `${image["background-position"]}`,
+              // maxWidth: "100%", // Make the image responsive
+              // height: "auto", // Maintain aspect ratio
+            }}
+          />
+        </p> */}
       </div>
     </div>
   );
