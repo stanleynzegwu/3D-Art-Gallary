@@ -245,6 +245,8 @@ export const updateCharacter = (keyPressed,camera,rigidPlayer,player,delta,contr
  
   
   const isKeyPressed = keyPressed.some(key => key === true)
+  //Update whether the key is currently being pressed so that any componet that needs it will know
+  store.isKeyPressed = isKeyPressed
   if(isKeyPressed){
    let angleYCameraDirection = Math.atan2(
     camera.position.x - rigidPlayer.translation().x,

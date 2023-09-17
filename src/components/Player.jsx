@@ -1,12 +1,12 @@
 import { useKeyboardControls, useGLTF, useFBX, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRapier, RigidBody, CapsuleCollider, interactionGroups } from "@react-three/rapier";
+import { useRapier, RigidBody, CapsuleCollider } from "@react-three/rapier";
 import { useEffect, useRef } from "react";
 import { useSnapshot } from "valtio";
-import * as THREE from "three";
 
 import { store } from "../store";
 import { playAnimation, toggleMovement, updateCharacter } from "../utils";
+const audio = new Audio("/audio/footstep.mp3");
 
 //cHARACTER ANIMATION
 const Player = () => {
@@ -65,6 +65,20 @@ const Player = () => {
     };
   }, []);
 
+  //Play the footstep audio if the WASD/Arrow keys is/are pressed
+  useEffect(() => {
+    if (snap.audio && snap.isKeyPressed) {
+      audio.currentTime = 0;
+      audio.play();
+      audio.loop = true;
+      audio.volume = 0.5;
+    }
+
+    return () => {
+      audio.pause();
+    };
+  }, [snap.audio, snap.isKeyPressed]);
+
   useFrame(({ camera, controls }, delta) => {
     //KEYBOARDCONTROLS
     const { forward, backward, leftward, rightward } = getKeys();
@@ -89,13 +103,11 @@ const Player = () => {
       <RigidBody
         type={"dynamic"}
         lockRotations
-        // gravityScale={0}
         canSleep={false}
         friction={3}
         colliders={false}
         ref={rigidPlayer}
         position={[11, 2, 19]}
-        // collisionGroups={interactionGroups(0, [0, 1])}
         onCollisionEnter={() => {
           store.collision = true;
         }}
