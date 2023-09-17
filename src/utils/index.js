@@ -192,6 +192,32 @@ export const playAnimation = (keyPressed) => {
   
 }
 
+const directionOffsetFunc = (keyPressed) => {
+  let directionOffset = 0 //w
+
+  if(keyPressed[1] ){
+    if(keyPressed[3]){
+      directionOffset = Math.PI /4 // s + d
+    }else if(keyPressed[2]){
+      directionOffset = - Math.PI/4 // s + a
+    }
+  }else if(keyPressed[0]){
+    if(keyPressed[3]){
+      directionOffset = Math.PI / 4 + Math.PI / 2 //w + d
+    }else if(keyPressed[2]){
+      directionOffset = - Math.PI/4 - Math.PI / 2 // w + a
+    }else{
+      directionOffset = Math.PI //s
+    }
+  }else if(keyPressed[3]){
+    directionOffset = Math.PI / 2 //d
+  }else if(keyPressed[2]){
+    directionOffset = -Math.PI / 2 //a
+  }
+
+  return directionOffset
+}
+
 const updateCameraTarget = (camera,rigidPlayer,moveX, moveZ,orbitControl) => {
   let cameraTarget = new THREE.Vector3()
 
@@ -200,8 +226,8 @@ const updateCameraTarget = (camera,rigidPlayer,moveX, moveZ,orbitControl) => {
     camera.position.y = rigidPlayer.translation().y + 2
   }else{
     camera.position.x -= moveX
-    camera.position.z -= moveZ
     camera.position.y = rigidPlayer.translation().y + 2 
+    camera.position.z -= moveZ
   }
 
   // update camera target
@@ -211,73 +237,50 @@ const updateCameraTarget = (camera,rigidPlayer,moveX, moveZ,orbitControl) => {
   orbitControl.target = cameraTarget
 }
 
-export const playerdirection = (keyPressed,camera,rigidPlayer,player,delta,control,rapier,world) => {
-  const directionOffsetFunc = (keyPressed) => {
-    let directionOffset = 0 //w
-  
-    if(keyPressed[1] ){
-      if(keyPressed[3]){
-        directionOffset = Math.PI /4 // s + d
-      }else if(keyPressed[2]){
-        directionOffset = - Math.PI/4 // s + a
-      }
-    }else if(keyPressed[0]){
-      if(keyPressed[3]){
-        directionOffset = Math.PI / 4 + Math.PI / 2 //w + d
-      }else if(keyPressed[2]){
-        directionOffset = - Math.PI/4 - Math.PI / 2 // w + a
-      }else{
-        directionOffset = Math.PI //s
-      }
-    }else if(keyPressed[3]){
-      directionOffset = Math.PI / 2 //d
-    }else if(keyPressed[2]){
-      directionOffset = -Math.PI / 2 //a
-    }
-  
-    return directionOffset
-  }
-
-   // temporary data
+export const updateCharacter = (keyPressed,camera,rigidPlayer,player,delta,control,rapier,world) => {
+// temporary data
   let walkDirection = new THREE.Vector3()
   let rotateAngle = new THREE.Vector3(0, 1, 0)
   let rotateQuarternion= new THREE.Quaternion()
  
   
   const isKeyPressed = keyPressed.some(key => key === true)
-    if(isKeyPressed){
-     let angleYCameraDirection = Math.atan2(
-      camera.position.x - rigidPlayer.translation().x,
-      camera.position.z - rigidPlayer.translation().z
-      )
-      //diagonal movement angle offset
-      let directionOffset = directionOffsetFunc(keyPressed)
+  if(isKeyPressed){
+   let angleYCameraDirection = Math.atan2(
+    camera.position.x - rigidPlayer.translation().x,
+    camera.position.z - rigidPlayer.translation().z
+    )
+    //diagonal movement angle offset
+    let directionOffset = directionOffsetFunc(keyPressed)
 
-      //rotate model
-      rotateQuarternion.setFromAxisAngle(rotateAngle, angleYCameraDirection + directionOffset)
-      player.quaternion.rotateTowards(rotateQuarternion, 0.2)
+    //rotate model
+    rotateQuarternion.setFromAxisAngle(rotateAngle, angleYCameraDirection + directionOffset)
+    player.quaternion.rotateTowards(rotateQuarternion, 0.2)
 
-       // calculate direction
-       camera.getWorldDirection(walkDirection)
-       walkDirection.y = 0
-       walkDirection.normalize()
-       walkDirection.applyAxisAngle(rotateAngle, directionOffset)
+    // calculate direction
+    camera.getWorldDirection(walkDirection)
+    walkDirection.y = 0
+    walkDirection.normalize()
+    walkDirection.applyAxisAngle(rotateAngle, directionOffset)
 
-       // run/walk velocity
-       const velocity = store.movementType == 'Running' ? 4 : 3
-       let playerPosition = rigidPlayer.translation();
+    // run/walk velocity
+    const velocity = store.movementType == 'Running' ? 4 : 3
       
-        const moveX = walkDirection.x * velocity * delta
-        const moveZ = walkDirection.z * velocity * delta
+    const moveX = walkDirection.x * velocity * delta
+    const moveZ = walkDirection.z * velocity * delta
 
-        playerPosition.x -= moveX;
-        playerPosition.z -= moveZ;
-        rigidPlayer.setTranslation(playerPosition, true)
-
-        raycast(rigidPlayer,player,rapier,world)
-        updateCameraTarget(camera,rigidPlayer,moveX, moveZ, control)
+    let playerPosition = rigidPlayer.translation();
+    playerPosition.x -= moveX;
+    playerPosition.z -= moveZ;
+    rigidPlayer.setTranslation(playerPosition, true)
+    
+    //call the raycast function
+    raycast(rigidPlayer,player,rapier,world)
+    //call the updateCameraTarget function
+    updateCameraTarget(camera,rigidPlayer,moveX, moveZ, control)
         
     }
+    // console.log(rigidPlayer.translation())
 
 }
 
@@ -295,16 +298,14 @@ export const raycast = (rigidPlayer,player,rapier,world) => {
     if(hit.toi <= 0.5){
       if(!store.collision){
         store.collision = true
-        console.log(true)
       }
     }else{
       if(store.collision){
         store.collision = false
-        console.log(false)
       }
     }
 
-    //check how close the player is the selceted arts
+    //check how close the player is to the selceted arts
     if((hit.toi <= 4) && (hit.collider._parent.userData !== undefined)){
       if(store.currentIntersectedObject?.frame !== hit.collider._parent.userData.frame){
         store.currentIntersectedObject = hit.collider._parent.userData

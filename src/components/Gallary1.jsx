@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Html, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames } from "../constants";
@@ -75,41 +75,43 @@ export default function Gallary1(props) {
 
       <RigidBody type={"fixed"}>
         <mesh
+          name="woodenChair1"
+          geometry={nodes.woodenChair1.geometry}
+          material={textureMaterial}
+          position={[-6.968, 1.29, -19.913]}
+          rotation={[0, -0.969, 0]}
+        />
+        <mesh
           name="receptionDesk"
           geometry={nodes.receptionDesk.geometry}
           material={textureMaterial}
           position={[7.324, 1.157, 4.464]}
         />
-        {/* </RigidBody> */}
         <mesh
-          name="receptionDivider"
-          geometry={nodes.receptionDivider.geometry}
+          name="pillar2"
+          geometry={nodes.pillar2.geometry}
           material={textureMaterial}
-          position={[10.261, 2.667, 4.47]}
+          position={[-28.166, 0.833, 19.36]}
+        />
+        <mesh
+          name="pillar1"
+          geometry={nodes.pillar1.geometry}
+          material={textureMaterial}
+          position={[-28.166, 0.833, 19.36]}
         />
       </RigidBody>
-      <mesh
-        name="handlePillarAndChair"
-        geometry={nodes.handlePillarAndChair.geometry}
-        material={textureMaterial}
-        position={[-27.046, 2.08, -13.774]}
-        rotation={[0, -1.571, 0]}
-      />
-
-      <mesh
-        name="jointReceptionLedLight"
-        geometry={nodes.jointReceptionLedLight.geometry}
-        material={yellowLedMaterial}
-        position={[6.841, 1.347, 4.464]}
-      />
-      {/* <RigidBody type={"fixed"} colliders={"hull"}> */}
       <mesh
         name="jointStaircase"
         geometry={nodes.jointStaircase.geometry}
         material={textureMaterial}
         position={[19.446, 1.037, 0.718]}
       />
-      {/* </RigidBody> */}
+      <mesh
+        name="jointReceptionLedLight"
+        geometry={nodes.jointReceptionLedLight.geometry}
+        material={yellowLedMaterial}
+        position={[6.841, 1.347, 4.464]}
+      />
     </group>
   );
 }

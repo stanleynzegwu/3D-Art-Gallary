@@ -1,5 +1,5 @@
-import { Canvas, useThree } from "@react-three/fiber";
-import { KeyboardControls, Loader } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { KeyboardControls } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 import Experience from "./Experience";
 import Overlay from "./components/UI/Overlay";
@@ -27,7 +27,7 @@ export default function App() {
           camera={{
             fov: 30,
             near: 0.1,
-            far: 200,
+            far: 70,
             // position: [19, -4, 47]
             position: [19, -2.399893760681152, 47],
           }}
@@ -39,8 +39,6 @@ export default function App() {
           </Physics>
         </Canvas>
       </KeyboardControls>
-
-      {/* <Loader /> */}
 
       {!snap.start && <Overlay />}
       {snap.displayArtInfo && <ArtInfoCard />}

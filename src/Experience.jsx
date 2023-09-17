@@ -26,7 +26,7 @@ audio.loop = true;
 
 export default function Experience() {
   const snap = useSnapshot(store);
-  const { gl, camera } = useThree();
+  const { gl, camera, scene, controls } = useThree();
 
   //Toggle Fullscreen
   makeFullScreen(gl);
@@ -38,6 +38,13 @@ export default function Experience() {
   const wallMaterial = new THREE.MeshBasicMaterial({
     map: wallTexture,
   });
+
+  //EnvironmentMap
+  const environmentMap = useTexture("textures/envMap.jpg");
+  environmentMap.mapping = THREE.EquirectangularReflectionMapping;
+  environmentMap.colorSpace = THREE.SRGBColorSpace;
+  scene.background = environmentMap;
+  scene.environment = environmentMap;
 
   useEffect(() => {
     if (snap.start) {
@@ -54,6 +61,11 @@ export default function Experience() {
         },
         "-=1"
       );
+
+      //set orbitcontrols target to the current rigidBody position
+      controls.target.copy(
+        new THREE.Vector3(15.348910331726074, -2.399893760681152, 22.668846130371094)
+      );
     }
   }, [snap.start]);
 
@@ -69,7 +81,7 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
+      <Perf position="top-left" />
       <OrbitControls
         makeDefault
         // minAzimuthAngle={-Math.PI / 4}
@@ -97,7 +109,6 @@ export default function Experience() {
         <Collider wallMaterial={wallMaterial} />
         <OtherCollection />
         <Receptionist />
-        {/* <Test /> */}
         <Player />
       </Center>
     </>

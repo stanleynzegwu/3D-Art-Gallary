@@ -6,7 +6,7 @@ import { useSnapshot } from "valtio";
 import * as THREE from "three";
 
 import { store } from "../store";
-import { playAnimation, playerdirection, toggleMovement } from "../utils";
+import { playAnimation, toggleMovement, updateCharacter } from "../utils";
 
 //cHARACTER ANIMATION
 const Player = () => {
@@ -72,7 +72,7 @@ const Player = () => {
     playAnimation([forward, backward, leftward, rightward]);
 
     if (snap.keypressIsEnabled) {
-      playerdirection(
+      updateCharacter(
         [forward, backward, leftward, rightward],
         camera,
         rigidPlayer.current,
