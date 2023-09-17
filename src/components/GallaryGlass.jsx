@@ -5,16 +5,10 @@ import * as THREE from "three";
 export default function GallaryGlass(props) {
   const { nodes } = useGLTF("/models/gallaryGlass.glb");
 
-  const glassMaterial = new THREE.MeshPhysicalMaterial({
+  const glassMaterial = new THREE.MeshBasicMaterial({
     color: "#ffffff",
-    transmission: 1,
-    opacity: 1,
-    metalness: 0,
-    roughness: 0.1,
-    ior: 1.5,
-    thickness: 0.5,
-    // specularIntensity: 1,
-    // specularColor: "ffffff",
+    transparent: true,
+    opacity: 0.02,
   });
 
   const blueglass = new THREE.MeshBasicMaterial({

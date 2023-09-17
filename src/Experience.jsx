@@ -1,4 +1,4 @@
-import { useMemo, useEffect, Suspense } from "react";
+import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
@@ -19,7 +19,6 @@ import {
   OtherCollection,
   Receptionist,
 } from "./components";
-import { Test } from "./components/Test";
 const audio = new Audio("/audio/meditation.mp3");
 audio.volume = 0.3;
 audio.loop = true;
