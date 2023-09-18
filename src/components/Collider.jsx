@@ -114,19 +114,13 @@ export default function Collider({ wallMaterial }) {
           position={[19.573, 3.956, 0.504]}
         />
       </RigidBody>
-      <RigidBody
-        type="fixed"
-        colliders={"trimesh"}
-        // onCollisionEnter={() => (store.movementType = "Ascending")}
-        // onCollisionExit={() => (store.movementType = "Walking")}
-      >
+      <RigidBody type="fixed" colliders={"trimesh"}>
         <mesh
           name="stairGlassCollider"
           geometry={nodes.stairGlassCollider.geometry}
           material={material}
           position={[19.43, 1.037, 0.718]}
         />
-
         <mesh
           name="staircaseCollider"
           geometry={nodes.staircaseCollider.geometry}

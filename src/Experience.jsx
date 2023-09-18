@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
-import { makeFullScreen } from "./utils";
+import { toggleFullScreen } from "./utils";
 import { gsap } from "gsap";
 import { store } from "./store";
 import { useSnapshot } from "valtio";
@@ -28,7 +28,7 @@ export default function Experience() {
   const { gl, camera, scene, controls } = useThree();
 
   //Toggle Fullscreen
-  makeFullScreen(gl);
+  toggleFullScreen(gl);
 
   //WALL MATERIAL
   const wallTexture = useTexture("textures/gallaryWall.jpg");
@@ -88,7 +88,7 @@ export default function Experience() {
         minPolarAngle={Math.PI / 2} // Minimum elevation angle (looking downwards)
         maxPolarAngle={Math.PI - Math.PI / 3} // Maximum elevation angle (looking upwards)
       />
-      <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
+      <directionalLight position={[1, 2, 3]} intensity={1.4} />
       {/* <Environment
         preset="city"
         ground={{

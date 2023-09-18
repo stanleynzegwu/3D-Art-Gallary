@@ -155,7 +155,7 @@
 import { store } from "../store";
 import * as THREE from 'three'
 
-export const makeFullScreen = (gl) => {
+export const toggleFullScreen = (gl) => {
   window.addEventListener("dblclick", () => {
     const canvas = gl.domElement;
     const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement;
@@ -266,7 +266,7 @@ export const updateCharacter = (keyPressed,camera,rigidPlayer,player,delta,contr
     walkDirection.applyAxisAngle(rotateAngle, directionOffset)
 
     // run/walk velocity
-    const velocity = store.movementType == 'Running' ? 4 : 3
+    const velocity = store.movementType == 'Running' ? 5 : 4
       
     const moveX = walkDirection.x * velocity * delta
     const moveZ = walkDirection.z * velocity * delta
@@ -282,7 +282,6 @@ export const updateCharacter = (keyPressed,camera,rigidPlayer,player,delta,contr
     updateCameraTarget(camera,rigidPlayer,moveX, moveZ, control)
         
     }
-    // console.log(rigidPlayer.translation())
 
 }
 

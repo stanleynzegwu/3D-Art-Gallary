@@ -7,6 +7,8 @@ import { useSnapshot } from "valtio";
 import { store } from "../store";
 import { playAnimation, toggleMovement, updateCharacter } from "../utils";
 const audio = new Audio("/audio/footstep.mp3");
+audio.volume = 0.8;
+audio.loop = true;
 
 //cHARACTER ANIMATION
 const Player = () => {
@@ -19,23 +21,13 @@ const Player = () => {
   const { animations: runningAnimation } = useFBX("./animations/Running.fbx");
   const { animations: standingAnimation } = useFBX("./animations/Standing Idle.fbx");
   const { animations: walkingAnimation } = useFBX("./animations/Walking.fbx");
-  const { animations: ascendingStairsAnimation } = useFBX("./animations/Ascending Stairs.fbx");
-  const { animations: descendingStairsAnimation } = useFBX("./animations/Descending Stairs.fbx");
 
   runningAnimation[0].name = "Running";
   standingAnimation[0].name = "Standing";
   walkingAnimation[0].name = "Walking";
-  ascendingStairsAnimation[0].name = "Ascending";
-  descendingStairsAnimation[0].name = "Descending";
 
   const { actions } = useAnimations(
-    [
-      runningAnimation[0],
-      standingAnimation[0],
-      walkingAnimation[0],
-      ascendingStairsAnimation[0],
-      descendingStairsAnimation[0],
-    ],
+    [runningAnimation[0], standingAnimation[0], walkingAnimation[0]],
     player
   );
 
@@ -70,8 +62,7 @@ const Player = () => {
     if (snap.audio && snap.isKeyPressed) {
       audio.currentTime = 0;
       audio.play();
-      audio.loop = true;
-      audio.volume = 0.5;
+      audio.playbackRate = snap.movementType === "Walking" ? 1 : 1.3;
     }
 
     return () => {
@@ -82,10 +73,11 @@ const Player = () => {
   useFrame(({ camera, controls }, delta) => {
     //KEYBOARDCONTROLS
     const { forward, backward, leftward, rightward } = getKeys();
-    //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
-    playAnimation([forward, backward, leftward, rightward]);
 
     if (snap.keypressIsEnabled) {
+      //PLAY ANIMATION BASED ON CURRENT USER INTERACTION
+      playAnimation([forward, backward, leftward, rightward]);
+
       updateCharacter(
         [forward, backward, leftward, rightward],
         camera,
@@ -108,10 +100,11 @@ const Player = () => {
         colliders={false}
         ref={rigidPlayer}
         position={[11, 2, 19]}
-        onCollisionEnter={() => {
-          store.collision = true;
-        }}
-        onCollisionExit={() => (store.collision = false)}
+        // onCollisionEnter={(e) => {
+        //   store.collision = true;
+        //   console.log(e);
+        // }}
+        // onCollisionExit={() => (store.collision = false)}
       >
         <CapsuleCollider args={[0.5, 0.4]} position-y={2} position={[0, 0.9, 0]} />
         <primitive ref={player} rotation-y={-Math.PI} object={avatar.scene} />
