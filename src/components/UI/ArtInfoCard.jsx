@@ -45,6 +45,13 @@ export default function ArtInfoCard() {
             }}
           />
         </p> */}
+        <div className="italic absolute bottom-[5px] left-[15px] right-[15px] text-sm font-light">
+          <span className="font-semibold">PS:</span>{" "}
+          <p className="inline">
+            Art info is not related to the images but generated for demo purposes only. Enjoy the
+            gallery!
+          </p>
+        </div>
       </div>
     </div>
   );
