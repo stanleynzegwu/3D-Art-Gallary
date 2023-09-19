@@ -8,7 +8,7 @@ export default function ArtInfoCard() {
 
   return (
     <div className="text-white z-20 w-[100%] h-[100%] absolute top-0 flex flex-col justify-center items-center bg-black bg-opacity-20 transition duration-200 ease-in-out">
-      <div className="p-8 xl:px-16 w-[95%] h-[95%]  md:w-[90%] lg:w-[90%] lg:h-[80%] xl:w-[80%]  rounded-xl bg-black  relative flex flex-col md:flex-row gap-2">
+      <div className="p-8 xl:px-16 w-[95%] h-[95%]  md:w-[90%] lg:w-[90%] lg:h-[85%] xl:w-[80%]  rounded-xl bg-black  relative flex flex-col md:flex-row gap-2">
         <img
           src={closeIcon}
           alt="closeIcon"

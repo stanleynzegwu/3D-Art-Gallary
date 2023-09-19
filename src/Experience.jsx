@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import * as THREE from "three";
-import { OrbitControls, Center, Environment, useTexture } from "@react-three/drei";
+import { OrbitControls, Center, useTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import { toggleFullScreen } from "./utils";
@@ -89,14 +89,6 @@ export default function Experience() {
         maxPolarAngle={Math.PI - Math.PI / 3} // Maximum elevation angle (looking upwards)
       />
       <directionalLight position={[1, 2, 3]} intensity={1.4} />
-      {/* <Environment
-        preset="city"
-        ground={{
-          height: 7,
-          radius: 28,
-          scale: 100,
-        }}
-      /> */}
       <ambientLight intensity={0.5} />
       <Center>
         <Gallary1 />

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Html, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames2 } from "../constants";

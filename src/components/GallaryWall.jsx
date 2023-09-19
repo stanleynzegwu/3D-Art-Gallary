@@ -1,25 +1,17 @@
-import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import React from "react";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function GallaryWall({ wallMaterial: textureMaterial }) {
+export default function GallaryWall({ wallMaterial }) {
   const { nodes } = useGLTF("/models/gallaryWall.glb");
-
   const redMaterial = new THREE.MeshBasicMaterial({ color: "#ff4242" });
-  // const wallTexture = useTexture("textures/gallaryWall.jpg");
-  // wallTexture.flipY = false;
-  // wallTexture.colorSpace = THREE.SRGBColorSpace;
-
-  // const textureMaterial = new THREE.MeshBasicMaterial({
-  //   map: wallTexture,
-  // });
 
   return (
     <group dispose={null}>
       <mesh
-        name="wallANdFlagPipe"
-        geometry={nodes.wallANdFlagPipe.geometry}
-        material={textureMaterial}
+        name="wall"
+        geometry={nodes.wall.geometry}
+        material={wallMaterial}
         position={[19.243, 0.109, -2.278]}
         rotation={[0, 1.571, 0]}
       />
@@ -29,13 +21,6 @@ export default function GallaryWall({ wallMaterial: textureMaterial }) {
         material={redMaterial}
         position={[5.594, 3.051, 20.505]}
         rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        name="flag"
-        geometry={nodes.flag.geometry}
-        material={textureMaterial}
-        position={[15.492, 3.67, 22.233]}
-        rotation={[-1.114, 1.566, 1.167]}
       />
     </group>
   );

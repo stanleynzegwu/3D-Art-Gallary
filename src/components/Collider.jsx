@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { RigidBody } from "@react-three/rapier";
@@ -82,12 +82,6 @@ export default function Collider({ wallMaterial }) {
           position={[19.073, 6.465, -11.695]}
         />
         <mesh
-          name="topGroundCollider2"
-          geometry={nodes.topGroundCollider2.geometry}
-          material={material}
-          position={[-8.818, 5.828, -3]}
-        />
-        <mesh
           name="groundFloorCollider"
           geometry={nodes.groundFloorCollider.geometry}
           material={material}
@@ -104,6 +98,47 @@ export default function Collider({ wallMaterial }) {
           geometry={nodes.smallWallup3.geometry}
           material={material}
           position={[19.073, 6.465, -38.123]}
+        />
+        <mesh
+          name="topGroundCollider2"
+          geometry={nodes.topGroundCollider2.geometry}
+          material={material}
+          position={[-8.818, 5.828, -3]}
+        />
+        <mesh
+          name="Plane002"
+          geometry={nodes.Plane002.geometry}
+          material={material}
+          position={[9.565, 2.443, -21.599]}
+          rotation={[Math.PI / 2, 0, 0]}
+        />
+        <mesh
+          name="Plane007"
+          geometry={nodes.Plane007.geometry}
+          material={material}
+          position={[-24.215, 2.443, -13.09]}
+          rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        />
+        <mesh
+          name="Plane008"
+          geometry={nodes.Plane008.geometry}
+          material={material}
+          position={[-27.042, 2.443, -13.057]}
+          rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        />
+        <mesh
+          name="Plane009"
+          geometry={nodes.Plane009.geometry}
+          material={material}
+          position={[9.63, 2.443, -18.706]}
+          rotation={[Math.PI / 2, 0, 0]}
+        />
+        <mesh
+          name="Plane010"
+          geometry={nodes.Plane010.geometry}
+          material={material}
+          position={[12.718, 2.443, 20.087]}
+          rotation={[Math.PI / 2, 0, -0.876]}
         />
       </RigidBody>
       <RigidBody type="fixed" colliders={"hull"}>

@@ -22,7 +22,8 @@ export default function Gallary2() {
   return (
     <group dispose={null}>
       {pivots(nodes, textureMaterial).map(({ name, geometry, position, userData }) => (
-        <RigidBody type={"fixed"} userData={userData} key={geometry + name}>
+        // <RigidBody type={"fixed"} userData={userData} key={geometry + name}>
+        <RigidBody type={"fixed"} key={geometry + name}>
           <mesh
             name={name}
             userData={userData}
@@ -85,25 +86,11 @@ export default function Gallary2() {
         />
       </RigidBody>
       <mesh
-        name="joinedChairAndComputer"
-        geometry={nodes.joinedChairAndComputer.geometry}
-        material={textureMaterial}
-        position={[8.239, 0.975, 6.006]}
-        rotation={[Math.PI / 2, 0, Math.PI / 2]}
-      />
-      <mesh
         name="officeChairLowpoly"
         geometry={nodes.officeChairLowpoly.geometry}
         material={textureMaterial}
         position={[8.239, 0.995, 3.171]}
         rotation={[Math.PI / 2, 0, Math.PI / 2]}
-      />
-      <mesh
-        name="keyboardLowPoly"
-        geometry={nodes.keyboardLowPoly.geometry}
-        material={textureMaterial}
-        position={[7.36, 1.62, 3.111]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         name="mouseLowPoly"

@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF, useVideoTexture } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function OtherCollection(props) {
+export default function OtherCollection() {
   const { nodes } = useGLTF("/models/other.glb");
 
   const glassMaterial = new THREE.MeshBasicMaterial({
     transparent: true,
-    opacity: 0.7,
+    opacity: 0.95,
   });
 
   const tvVideoTexture = useVideoTexture("textures/ladySinging.mp4");
@@ -21,7 +21,7 @@ export default function OtherCollection(props) {
   });
 
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <mesh
         name="screen001"
         geometry={nodes.screen001.geometry}
@@ -36,10 +36,10 @@ export default function OtherCollection(props) {
         position={[10.261, 2.667, 4.47]}
       />
       <mesh
-        name="pivotAndStairGlass"
-        geometry={nodes.pivotAndStairGlass.geometry}
+        name="pivotGlass4006"
+        geometry={nodes.pivotGlass4006.geometry}
         material={glassMaterial}
-        position={[24.515, 2.312, -21.032]}
+        position={[23.025, 7.374, -21.328]}
       />
     </group>
   );
