@@ -27,8 +27,8 @@ export default function Experience() {
   const snap = useSnapshot(store);
   const { gl, camera, scene, controls } = useThree();
 
-  //Toggle Fullscreen
-  toggleFullScreen(gl);
+  //Fullscreen can be toggled only if Experience have started
+  snap.start && toggleFullScreen(gl);
 
   //WALL MATERIAL
   const wallTexture = useTexture("textures/gallaryWall.jpg");
@@ -69,9 +69,7 @@ export default function Experience() {
   }, [snap.start]);
 
   useEffect(() => {
-    if (snap.audio) {
-      audio.play();
-    }
+    snap.audio && audio.play();
 
     return () => {
       audio.pause();

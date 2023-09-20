@@ -23,7 +23,7 @@ export default function ArtInfoCard() {
           <p className="">
             Artist- <span className="font-semibold">{Artist}</span>
           </p>
-          <p className="pointer-events-none text-sm md:text-base xl:text-lg">{description}</p>
+          <p className="pointer-events-none text-sm md:text-base ">{description}</p>
         </div>
         <p className="hidden w-[100%] md:w-[45%] h-full rounded-sm pointer-events-none sm:flex items-center justify-center overflow-hidden">
           <i
@@ -45,7 +45,7 @@ export default function ArtInfoCard() {
             }}
           />
         </p> */}
-        <div className="italic absolute bottom-[5px] left-[15px] right-[15px] text-sm font-light">
+        <div className="italic text-gray-400 absolute bottom-[5px] left-[29px] right-[29px] xl:left-[60px] xl:right-[50px] text-sm font-light">
           <span className="font-semibold">PS:</span>{" "}
           <p className="inline">
             Art info is not related to the images but generated for demo purposes only. Enjoy the
