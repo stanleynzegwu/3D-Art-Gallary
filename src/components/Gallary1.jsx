@@ -1,16 +1,20 @@
 import React from "react";
-import { Html, useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { frames } from "../constants";
 import { RigidBody } from "@react-three/rapier";
 import { useSnapshot } from "valtio";
 import { store } from "../store";
+import { useThree } from "@react-three/fiber";
+import InfoPopup from "./UI/InfoPopup";
+import CloseAnimateIcon from "./UI/CloseAnimateIcon";
+import { handleArtClick } from "../utils";
 
-export default function Gallary1(props) {
+export default function Gallary1() {
   const snap = useSnapshot(store);
   const { nodes } = useGLTF("/models/gallaryModel1.glb");
   const texture = useTexture("textures/gallaryTexture1.jpg");
-
+  const { camera, controls } = useThree();
   const yellowLedMaterial = new THREE.MeshBasicMaterial({
     color: "#FFFF33",
   });
@@ -39,10 +43,8 @@ export default function Gallary1(props) {
               material={textureMaterial}
               position={position}
               rotation={rotation}
-              onClick={(event) => {
-                event.stopPropagation();
-              }}
-              onPointerEnter={(event) => {
+              onClick={(event) => handleArtClick(event, name, userData, camera, controls)}
+              onPointerEnter={() => {
                 document.body.style.cursor = "pointer";
               }}
               onPointerLeave={(event) => {
@@ -51,23 +53,10 @@ export default function Gallary1(props) {
               }}
             >
               {/* Display the popup if currentIntersectedObject is not null(that means the player is near an art) */}
-              {snap.currentIntersectedObject?.frame === userData.frame && (
-                <Html zIndexRange={[10, 0]}>
-                  <div
-                    className={`${
-                      snap.displayArtInfo ? "hidden" : "block"
-                    } z-10 text-white bg-black bg-opacity-70 w-60 h-10 rounded-full px-4 py-2 flex flex-col justify-center cursor-pointer`}
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      store.displayArtInfo = true;
-                      store.keypressIsEnabled = false;
-                    }}
-                  >
-                    <h1 className="text-xs ">{`Name: ${snap.currentIntersectedObject.name}`}</h1>
-                    <p className="text-xs">{`Artist: ${snap.currentIntersectedObject.Artist}`}</p>
-                  </div>
-                </Html>
-              )}
+              {snap.currentIntersectedObject?.frame === userData.frame && <InfoPopup />}
+              {/* Show close icon when in art view mode */}
+              {snap.animateCameraToArt.isArtViewMode &&
+                snap.animateCameraToArt.artName === name && <CloseAnimateIcon />}
             </mesh>
           </RigidBody>
         ))}

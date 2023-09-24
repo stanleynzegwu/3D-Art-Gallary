@@ -22,7 +22,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-406px -2px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -39,7 +40,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -2px',
-        }
+        },
+        'direction':[0,0,5.5]
       }
     },
     {
@@ -56,7 +58,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -1214px',
-        }
+        },
+        'direction':[0,0,-4.5]
       }
     },
     {
@@ -73,7 +76,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1214px -1214px',
-        }
+        },
+        'direction':[0,0,-4.5]
       }
     },
     {
@@ -91,7 +95,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1618px -2px',
-        }
+        },
+        'direction':[0,0,-4.5]
       }
     },
     {
@@ -108,7 +113,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1618px -406px',
-        }
+        },
+        'direction':[0,0,-4.5]
       }
     },
     {
@@ -125,7 +131,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1618px -810px',
-        }
+        },
+        'direction':[0,0,-4.5]
       }
     },
     {
@@ -142,7 +149,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1618px -1214px',
-        }
+        },
+        'direction':[0,0,-6.3]
       }
     },
     {
@@ -159,7 +167,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -1618px',
-        }
+        },
+        'direction':[5,0,0]
       }
     },
     {
@@ -177,7 +186,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-406px -1618px',
-        }
+        },
+        'direction':[4.2,0,0]
       }
     },
     {
@@ -194,7 +204,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-810px -2px',
-        }
+        },
+        'direction':[4.2,0,0]
       }
     },
     {
@@ -211,7 +222,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1214px -2px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -228,7 +240,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -406px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -246,7 +259,8 @@ export const frames = (nodes,textureMaterial) => [
           'url':'bg-sprite1',
           'background-position': '-406px -406px',
         }
-      }
+      },
+      'direction':[-4.5,0,0]
     },
     {
       'name':"frame14",
@@ -262,7 +276,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-810px -406px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -279,7 +294,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1214px -406px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -296,7 +312,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -810px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -313,7 +330,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-406px -810px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -330,7 +348,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-810px -810px',
-        }
+        },
+        'direction':[0,0,-4.5]
       }
     },
     {
@@ -347,7 +366,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-1214px -810px',
-        }
+        },
+        'direction':[0,0,4.5]
       }
     },
     {
@@ -364,7 +384,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-406px -1214px',
-        }
+        },
+        'direction':[4.2,0,0]
       }
     },
     {
@@ -381,7 +402,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-810px -1214px',
-        }
+        },
+        'direction':[5,0,0]
       }
     },
     {
@@ -398,7 +420,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1px -1px',
-        }
+        },
+        'direction':[4.6,0,0]
       }
     },
     {
@@ -415,7 +438,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-403px -1px',
-        }
+        },
+        'direction':[0,0,-6.3]
       }
     },
     {
@@ -432,7 +456,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-805px -1px',
-        }
+        },
+        'direction':[0,0,-13]
       }
     },
     {
@@ -449,7 +474,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1207px -1px',
-        }
+        },
+        'direction':[0,0,-4]
       }
     },
     {
@@ -466,7 +492,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1px -403px',
-        }
+        },
+        'direction':[0,0,-4]
       }
     },
     {
@@ -483,7 +510,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-403px -403px',
-        }
+        },
+        'direction':[0,0,-4]
       }
     },
     {
@@ -500,7 +528,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-805px -403px',
-        }
+        },
+        'direction':[-3,0,0]
       }
     },
     {
@@ -517,7 +546,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1207px -403px',
-        }
+        },
+        'direction':[-3,0,0]
       }
     },
     {
@@ -534,7 +564,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1px -805px',
-        }
+        },
+        'direction':[-5.2,0,0]
       }
     },
     {
@@ -551,7 +582,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-403px -805px',
-        }
+        },
+        'direction':[0,0,6.3]
       }
     },
     {
@@ -568,7 +600,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-805px -805px',
-        }
+        },
+        'direction':[0,0,6.3]
       }
     },
     {
@@ -585,7 +618,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -1618px',
-        }
+        },
+        'direction':[6.3,0,0]
       }
     },
     {
@@ -602,7 +636,8 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1207px -805px',
-        }
+        },
+        'direction':[-6.3,0,0]
       }
     },
 ]
@@ -623,7 +658,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1px -1207px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -640,7 +676,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-403px -1207px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -657,7 +694,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite1',
           'background-position': '-810px -1214px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -674,7 +712,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite1',
           'background-position': '-2px -1618px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -691,7 +730,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-805px -1207px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -708,7 +748,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1207px -1207px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -725,7 +766,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1609px -1px',
-        }
+        },
+        'direction':[4.5,0,0]
       }
     },
     {
@@ -742,7 +784,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1609px -403px',
-        }
+        },
+        'direction':[-4.5,0,0]
       }
     },
     {
@@ -759,7 +802,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1609px -805px',
-        }
+        },
+        'direction':[0,0,-6.3]
       }
     },
     {
@@ -776,7 +820,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1609px -1207px',
-        }
+        },
+        'direction':[0,0,6.3]
       }
     },
     {
@@ -793,7 +838,8 @@ export const frames2 = (nodes,textureMaterial) =>
         'image':{
           'url':'bg-sprite2',
           'background-position': '-1px -1609px',
-        }
+        },
+        'direction':[0,0,6.3]
       }
     },
 ]

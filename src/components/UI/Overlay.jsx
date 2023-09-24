@@ -14,7 +14,7 @@ export default function Overlay() {
           className="w-full h-[40%] xl:h-[50%]  object-cover rounded-t-xl"
         />
         <div className=" h-[60%] xl:h-[50%] rounded-b-xl p-5 flex flex-col justify-center items-center">
-          <h1 className="overlay_text text-lg font-bold">Art Gallary</h1>
+          <h1 className="overlay_text text-lg font-bold">Art Gallery</h1>
           <p className="py-2">Immerse Yourself in Artistry: Discover Our Interactive Gallery</p>
           <p className="text-sm underline">Instructions</p>
           <div className="flex flex-col">

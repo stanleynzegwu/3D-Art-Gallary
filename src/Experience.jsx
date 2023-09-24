@@ -78,7 +78,7 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
+      <Perf position="top-left" />
       <OrbitControls
         makeDefault
         // minAzimuthAngle={-Math.PI / 4}
@@ -97,7 +97,7 @@ export default function Experience() {
         <GallaryWall wallMaterial={wallMaterial} />
         <Collider wallMaterial={wallMaterial} />
         <OtherCollection />
-        <Receptionist />
+        {/* <Receptionist /> */}
         <Player />
       </Center>
     </>
