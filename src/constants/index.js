@@ -258,9 +258,9 @@ export const frames = (nodes,textureMaterial) => [
         'image':{
           'url':'bg-sprite1',
           'background-position': '-406px -406px',
-        }
-      },
-      'direction':[-4.5,0,0]
+        },
+        'direction':[-4.5,0,0]
+      }
     },
     {
       'name':"frame14",
