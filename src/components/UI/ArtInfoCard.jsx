@@ -36,18 +36,6 @@ export default function ArtInfoCard() {
             }}
           />
         </p>
-        {/* <p className="w-[45%] h-full rounded-sm pointer-events-none flex items-center justify-center">
-          <img
-            src={image.url} // Make sure to provide the image URL
-            alt="Your Image"
-            className={`${image.url} bg-no-repeat block w-[400px] h-[400px] aspect-square`}
-            style={{
-              backgroundPosition: `${image["background-position"]}`,
-              // maxWidth: "100%", // Make the image responsive
-              // height: "auto", // Maintain aspect ratio
-            }}
-          />
-        </p> */}
         <div className="italic text-gray-400 absolute bottom-[5px] left-[29px] right-[29px] xl:left-[60px] xl:right-[50px] text-sm font-light">
           <span className="font-semibold">PS:</span>{" "}
           <p className="inline">

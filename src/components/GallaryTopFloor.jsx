@@ -68,61 +68,37 @@ export default function GallaryTopfloor() {
         position={[-8.818, 5.828, -3]}
       />
       <RigidBody type="fixed" rotation={[0, 1.571, 0]} position={[11.864, 6.089, -19.869]}>
-        <mesh
-          name="upperChair"
-          geometry={nodes.upperChair.geometry}
-          material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
-        />
-        <mesh
-          name="pivotUpper"
-          geometry={nodes.pivotUpper.geometry}
-          material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
-        />
+        <mesh name="upperChair" geometry={nodes.upperChair.geometry} material={textureMaterial} />
+        <mesh name="pivotUpper" geometry={nodes.pivotUpper.geometry} material={textureMaterial} />
         <mesh
           name="upperPillar1"
           geometry={nodes.upperPillar1.geometry}
           material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
         />
         <mesh
           name="upperPillar2"
           geometry={nodes.upperPillar2.geometry}
           material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
         />
         <mesh
           name="displayWallUpper1"
           geometry={nodes.displayWallUpper1.geometry}
           material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
         />
         <mesh
           name="displayWallUpper2"
           geometry={nodes.displayWallUpper2.geometry}
           material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
         />
         <mesh
           name="displayWallUpper3"
           geometry={nodes.displayWallUpper3.geometry}
           material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
         />
         <mesh
           name="displayWallUpper4"
           geometry={nodes.displayWallUpper4.geometry}
           material={textureMaterial}
-          // position={[11.864, 6.089, -19.869]}
-          // rotation={[0, 1.571, 0]}
         />
       </RigidBody>
 

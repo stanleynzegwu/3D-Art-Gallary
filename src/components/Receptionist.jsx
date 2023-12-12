@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { PositionalAudio, useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import { store } from "../store";
 import { useSnapshot } from "valtio";
 
@@ -22,17 +22,6 @@ export default function Receptionist() {
   return (
     <group position={[8.27547, 0.82, 3.2]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={1.17}>
       <primitive ref={ladyCharacter} object={model.scene} />
-      {/* <group position={[8.27547, 0.82, 3.2]}>
-        {snap.audio && (
-          <PositionalAudio
-            autoplay
-            loop
-            url="/audio/typingAndMouseClicks.mp3"
-            distance={0.5}
-            setRolloffFactor={0.5}
-          />
-        )}
-      </group> */}
     </group>
   );
 }

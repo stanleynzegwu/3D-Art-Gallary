@@ -18,7 +18,7 @@ const CloseAnimateIcon = () => {
           store.animateCameraToArt = {
             prevCameraPosition: null,
             isArtViewMode: false,
-            artName: "name",
+            artName: "",
           };
           controls.enabled = true;
           const timeline = gsap.timeline();

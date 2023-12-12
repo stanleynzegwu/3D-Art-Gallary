@@ -21,19 +21,12 @@ export default function Gallary3() {
 
   return (
     <group dispose={null}>
-      {/* <RigidBody
-        type="fixed"
-        friction={3}
-        name="groundFloor"
-        collisionGroups={interactionGroups(1, [0, 1])}
-      > */}
       <mesh
         name="groundFloorTile"
         geometry={nodes.groundFloorTile.geometry}
         material={floorMaterial}
         position={[-4.508, 0.667, -3.698]}
       />
-      {/* </RigidBody> */}
       <mesh
         name="ceillingAndOutsideGrass"
         geometry={nodes.ceillingAndOutsideGrass.geometry}

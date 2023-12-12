@@ -30,8 +30,12 @@ export default function Experience() {
   //Fullscreen can be toggled only if Experience have started
   snap.start && toggleFullScreen(gl);
 
+  const [wallTexture, environmentMap] = useTexture([
+    "textures/gallaryWall.jpg",
+    "textures/envMap.jpg",
+  ]);
+
   //WALL MATERIAL
-  const wallTexture = useTexture("textures/gallaryWall.jpg");
   wallTexture.flipY = false;
   wallTexture.colorSpace = THREE.SRGBColorSpace;
   const wallMaterial = new THREE.MeshBasicMaterial({
@@ -39,7 +43,6 @@ export default function Experience() {
   });
 
   //EnvironmentMap
-  const environmentMap = useTexture("textures/envMap.jpg");
   environmentMap.mapping = THREE.EquirectangularReflectionMapping;
   environmentMap.colorSpace = THREE.SRGBColorSpace;
   scene.background = environmentMap;
@@ -81,8 +84,6 @@ export default function Experience() {
       {/* <Perf position="top-left" /> */}
       <OrbitControls
         makeDefault
-        // minAzimuthAngle={-Math.PI / 4}
-        // maxAzimuthAngle={Math.PI / 4} // Maximum azimuth angle (left and right rotation)
         minPolarAngle={Math.PI / 2} // Minimum elevation angle (looking downwards)
         maxPolarAngle={Math.PI - Math.PI / 3} // Maximum elevation angle (looking upwards)
       />

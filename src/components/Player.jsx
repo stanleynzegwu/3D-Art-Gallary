@@ -10,7 +10,7 @@ const audio = new Audio("/audio/footstep.mp3");
 audio.volume = 0.8;
 audio.loop = true;
 
-//cHARACTER ANIMATION
+//CHARACTER ANIMATION
 const Player = () => {
   const { rapier, world } = useRapier();
   const snap = useSnapshot(store);
@@ -96,15 +96,10 @@ const Player = () => {
         type={"dynamic"}
         lockRotations
         canSleep={false}
-        friction={3}
+        friction={2}
         colliders={false}
         ref={rigidPlayer}
         position={[11, 2, 19]}
-        // onCollisionEnter={(e) => {
-        //   store.collision = true;
-        //   console.log(e);
-        // }}
-        // onCollisionExit={() => (store.collision = false)}
       >
         <CapsuleCollider args={[0.5, 0.4]} position-y={2} position={[0, 0.9, 0]} />
         <primitive ref={player} rotation-y={-Math.PI} object={avatar.scene} />
