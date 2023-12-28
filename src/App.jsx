@@ -5,9 +5,9 @@ import Experience from "./Experience";
 import Overlay from "./components/UI/Overlay";
 import { store } from "./store";
 import { useSnapshot } from "valtio";
-import Audio from "./components/UI/Audio";
 import ArtInfoCard from "./components/UI/ArtInfoCard";
 import { Suspense } from "react";
+import MediaControlIcons from "./components/UI/MediaControlIcons";
 
 export default function App() {
   const snap = useSnapshot(store);
@@ -30,6 +30,7 @@ export default function App() {
             far: 70,
             position: [19, -2.399893760681152, 47],
           }}
+          gl={{ preserveDrawingBuffer: true }}
         >
           <Physics>
             <Suspense fallback={null}>
@@ -41,7 +42,7 @@ export default function App() {
 
       {!snap.start && <Overlay />}
       {snap.displayArtInfo && <ArtInfoCard />}
-      <Audio />
+      <MediaControlIcons />
     </main>
   );
 }

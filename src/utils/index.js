@@ -2,6 +2,18 @@ import gsap from "gsap";
 import { store } from "../store";
 import * as THREE from 'three'
 
+export const downloadCanvasToImage = () => {
+  const canvas = document.querySelector("canvas");
+  const dataURL = canvas.toDataURL();
+  const link = document.createElement("a");
+
+  link.href = dataURL;
+  link.download = "canvas.png";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 export const toggleFullScreen = (gl) => {
   window.addEventListener("dblclick", () => {
     const canvas = gl.domElement;
@@ -92,10 +104,16 @@ export const updateCharacter = (keyPressed,camera,rigidPlayer,player,delta,contr
  
   
   const isKeyPressed = keyPressed.some(key => key === true)
-  //Update whether the key is currently being pressed so that any componet that needs it will know
+  //Update whether the key is currently being pressed so that any component that needs it will know
   store.isKeyPressed = isKeyPressed
+
   if(isKeyPressed){
-   let angleYCameraDirection = Math.atan2(
+    //The Math.atan2 function is then used to calculate the arctangent of the ratio between the differences in x and z coordinates. 
+    //The resulting angle, angleYCameraDirection, represents the angle in radians between the positive z-axis and 
+    //the line connecting the camera position and the player position. 
+    //This angle is often used in graphics and game development to determine the orientation or 
+    //direction in which an object (in this case, the camera) is facing relative to another object (in this case, the player).
+    let angleYCameraDirection = Math.atan2(
     camera.position.x - rigidPlayer.translation().x,
     camera.position.z - rigidPlayer.translation().z
     )
@@ -127,7 +145,6 @@ export const updateCharacter = (keyPressed,camera,rigidPlayer,player,delta,contr
     raycast(rigidPlayer,player,rapier,world)
     //call the updateCameraTarget function
     updateCameraTarget(camera,rigidPlayer,moveX, moveZ, control)
-        
     }
 
 }

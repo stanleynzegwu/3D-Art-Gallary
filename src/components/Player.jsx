@@ -101,7 +101,7 @@ const Player = () => {
         ref={rigidPlayer}
         position={[11, 2, 19]}
       >
-        <CapsuleCollider args={[0.5, 0.4]} position-y={2} position={[0, 0.9, 0]} />
+        <CapsuleCollider args={[0.5, 0.4]} position={[0, 0.9, 0]} />
         <primitive ref={player} rotation-y={-Math.PI} object={avatar.scene} />
       </RigidBody>
     </>
