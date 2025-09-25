@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { store } from "../../store";
 import closeIcon from "/images/closeIcon.png";
 import { useSnapshot } from "valtio";
@@ -5,6 +6,18 @@ import { useSnapshot } from "valtio";
 export default function ArtInfoCard() {
   const snap = useSnapshot(store);
   const { name, Artist, description, image } = snap.currentIntersectedObject;
+
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape" && store.displayArtInfo) {
+        store.displayArtInfo = false;
+        store.keypressIsEnabled = true;
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   return (
     <div

@@ -66,6 +66,8 @@ export default function GallaryTopfloor() {
         geometry={nodes.floorTile2.geometry}
         material={floorMaterial}
         position={[-8.818, 5.828, -3]}
+        onClick={(event) => event.stopPropagation()}
+        onPointerEnter={(event) => event.stopPropagation()}
       />
       <RigidBody type="fixed" rotation={[0, 1.571, 0]} position={[11.864, 6.089, -19.869]}>
         <mesh name="upperChair" geometry={nodes.upperChair.geometry} material={textureMaterial} />
